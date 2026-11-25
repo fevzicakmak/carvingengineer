@@ -1,0 +1,8 @@
+[
+  {"id":"tasta-mekan","title":"Taşta mekân","type":"video","src":"assets/ornek.mp4","poster":"assets/roma.webp","label":"Örnek video","description":"Mermer kuş sarayı tasarım görselinden hazırlanmış kısa bir yakınlaşma."},
+  {"id":"iyonik-kus-sarayi","title":"İyonik Kuş Sarayı","type":"image","src":"assets/iyonik.webp","label":"Tasarım çalışması","description":"İyonik sütunlar ve üç yuva üzerine bir mermer kuş sarayı tasarımı."},
+  {"id":"uc-kemer","title":"Üç Kemer","type":"image","src":"assets/uc-kemer.webp","label":"Tasarım çalışması","description":"Roma mimarisinden hareketle üç kemerli cephe çalışması."},
+  {"id":"osmanli-kus-sarayi","title":"Osmanlı Kuş Sarayı","type":"image","src":"assets/osmanli.webp","label":"Tasarım çalışması","description":"Üç yuvalı mermer kuş sarayı için tasarım."},
+  {"id":"roma-kus-sarayi","title":"Roma Kuş Sarayı","type":"image","src":"assets/roma.webp","label":"Tasarım çalışması","description":"Marmara mermeri için Roma esintili bir cephe tasarımı."},
+  {"id":"cifte-kopru","title":"Çifte Köprü Kuş Sarayı","type":"model","src":"assets/cifte-kopru.html","label":"Dijital 3B model","description":"Modeli sürükleyerek döndürebilir ve ayrıntılara yakınlaşabilirsiniz."}
+]

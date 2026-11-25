@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#22231f">
+  <meta name="description" content="Fevzi Çakmak’ın taş heykel portfolyosu. Taş yontu, kuş sarayları ve mimari çalışmalar.">
+  <title>Fevzi Çakmak · Taş Heykel</title>
+  <link rel="icon" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="gallery.js"></script>
+</head>
+<body>
+  <header class="top shell">
+    <a href="./" class="brand">Fevzi Çakmak <span>Taş heykel</span></a>
+    <nav aria-label="Ana menü"><a href="#galeri">Galeri</a><a href="#sanatci">Sanatçı</a><a href="#iletisim">İletişim</a></nav>
+  </header>
+  <main>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Kozbeyli · Foça</p>
+        <h1>Taşın<br>içinde.</h1>
+        <p>Kemerler, sütunlar ve galeriler. Bir taş bloğun içinde biçimlenen mimari mekânlar.</p>
+        <a class="primary" href="#galeri">Galeriyi aç</a>
+      </div>
+      <figure class="hero-image" id="hero-media" hidden>
+        <img id="hero-photo" alt="" fetchpriority="high">
+        <figcaption id="hero-credit"></figcaption>
+      </figure>
+    </section>
+    <section class="gallery-section shell" id="galeri">
+      <div class="section-head">
+        <h2>Galeri</h2>
+        <div class="filters" aria-label="Medya türü">
+          <button data-filter="all" aria-pressed="true">Tümü</button>
+          <button data-filter="image" aria-pressed="false">Görseller</button>
+          <button data-filter="video" aria-pressed="false">Videolar</button>
+          <button data-filter="model" aria-pressed="false">3B</button>
+        </div>
+      </div>
+      <p id="gallery-status" role="status"></p>
+      <div class="grid" id="gallery-grid"></div>
+      <noscript>Galeriyi açmak için tarayıcınızda JavaScript’i etkinleştirin.</noscript>
+    </section>
+    <section class="artist" id="sanatci">
+      <div class="shell section-split">
+        <h2>Sanatçı</h2>
+        <div><h3>Fevzi Çakmak</h3><p>1976’da İnegöl’de doğan taş yontma sanatçısı ve inşaat mühendisi Fevzi Çakmak, çalışmalarını Foça’nın Kozbeyli köyünde sürdürüyor. Antik mimarinin sütunları, kemerleri, dehlizleri ve galerileri taşla kurduğu mekânlara esin veriyor.</p><p>Marmara mermeri, limra ve bazaltla çalışan sanatçının eserleri arasında <em>Çığlık Tepesi</em> ve <em>Dehlizler</em> yer alıyor.</p></div>
+      </div>
+    </section>
+    <section class="contact shell section-split" id="iletisim"><h2>İletişim</h2><div><p>Eserler ve sergi talepleri için Etsy mağazasından mesaj gönderebilirsiniz.</p><a class="primary" href="https://www.etsy.com/shop/CarvingstoneArt">CarvingstoneArt · Etsy</a></div></section>
+  </main>
+  <footer class="shell"><span>© Fevzi Çakmak</span><a href="admin.html">Galeri yönetimi</a></footer>
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-bar"><h2 id="viewer-title"></h2><button type="button" id="close-viewer">Kapat</button></div>
+    <div id="viewer-media" class="viewer-media"></div>
+    <p id="viewer-description"></p>
+    <div class="viewer-actions"><button type="button" id="previous">Önceki</button><button type="button" id="next">Sonraki</button></div>
+  </dialog>
+</body>
+</html>
