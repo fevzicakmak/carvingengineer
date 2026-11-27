@@ -624,6 +624,74 @@
           "href": "https://carvingengineer.com/#galeri"
         }
       ]
+    },
+    {
+      "id": "mitological-glow",
+      "title": "Mitological Glow",
+      "slug": "mitological-glow",
+      "menu": true,
+      "blocks": [
+        {
+          "id": "mitological-glow-giris",
+          "type": "text",
+          "text": "Sütunlu cepheyi, oyma bezemeleri ve taşın doğal dokusunu farklı açılardan gösteren bir seçki. Yapım fotoğrafları, cephenin taş blok içinde adım adım biçimlenişini gösteriyor.",
+          "tone": "muted",
+          "face": "sans",
+          "size": "normal"
+        },
+        {
+          "id": "mitological-glow-eser-icerik",
+          "type": "image",
+          "mediaId": "mitological-glow-eser",
+          "fit": "wide"
+        },
+        {
+          "id": "mitological-glow-detaylar-baslik",
+          "type": "heading",
+          "text": "Sütun ve bezeme detayları",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "mitological-glow-detaylar-icerik",
+          "type": "image",
+          "mediaId": "mitological-glow-detaylar",
+          "fit": "wide"
+        },
+        {
+          "id": "mitological-glow-yontu-baslik",
+          "type": "heading",
+          "text": "Yontu süreci",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "mitological-glow-yontu-icerik",
+          "type": "image",
+          "mediaId": "mitological-glow-yontu",
+          "fit": "wide"
+        },
+        {
+          "id": "mitological-glow-video-baslik",
+          "type": "heading",
+          "text": "Eser videosu",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "mitological-glow-video-icerik",
+          "type": "video",
+          "mediaId": "mitological-glow-video",
+          "fit": "compact"
+        },
+        {
+          "id": "mitological-glow-galeri",
+          "type": "link",
+          "caption": "Tüm galeri",
+          "target": "external",
+          "href": "https://carvingengineer.com/#galeri"
+        }
+      ]
     }
   ]
 }

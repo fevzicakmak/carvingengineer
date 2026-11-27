@@ -520,5 +520,75 @@
     "title": "Sergi videosu",
     "src": "assets/mavi-bahce-sergisi-video.mp4",
     "poster": "assets/mavi-bahce-sergisi-video-kapak.webp"
+  },
+  {
+    "id": "mitological-glow-eser",
+    "type": "image",
+    "title": "Tamamlanan eser",
+    "src": "assets/mitological-glow-eser-1.webp",
+    "coverCaption": "Yandan ışık alan sütunlu cephe",
+    "views": [
+      {
+        "src": "assets/mitological-glow-eser-2.webp",
+        "caption": "Sütunlu cephenin çapraz görünümü"
+      },
+      {
+        "src": "assets/mitological-glow-eser-3.webp",
+        "caption": "Eser ve yontu aletleri"
+      },
+      {
+        "src": "assets/mitological-glow-eser-4.webp",
+        "caption": "Arka yüz ve taşın doğal dokusu"
+      },
+      {
+        "src": "assets/mitological-glow-eser-5.webp",
+        "caption": "Eserin kırmızı kumaşla sunumu"
+      }
+    ]
+  },
+  {
+    "id": "mitological-glow-detaylar",
+    "type": "image",
+    "title": "Sütun ve bezeme detayları",
+    "src": "assets/mitological-glow-detaylar-1.webp",
+    "coverCaption": "Sütunlar ve oyma bezeme kuşağı",
+    "views": [
+      {
+        "src": "assets/mitological-glow-detaylar-2.webp",
+        "caption": "Üst bölüm ve taşın ham yüzeyi"
+      },
+      {
+        "src": "assets/mitological-glow-detaylar-3.webp",
+        "caption": "Sütun başlıklarının yakından görünümü"
+      }
+    ]
+  },
+  {
+    "id": "mitological-glow-yontu",
+    "type": "image",
+    "title": "Yontu süreci",
+    "src": "assets/mitological-glow-yontu-1.webp",
+    "coverCaption": "Taş bloğunun ilk hâli",
+    "views": [
+      {
+        "src": "assets/mitological-glow-yontu-2.webp",
+        "caption": "Açıklıkların yontulması"
+      },
+      {
+        "src": "assets/mitological-glow-yontu-3.webp",
+        "caption": "Sütunlu cephenin biçimlenmesi"
+      },
+      {
+        "src": "assets/mitological-glow-yontu-4.webp",
+        "caption": "Üst silmelerin işlenmesi"
+      }
+    ]
+  },
+  {
+    "id": "mitological-glow-video",
+    "type": "video",
+    "title": "Eser videosu",
+    "src": "assets/mitological-glow-video.mp4",
+    "poster": "assets/mitological-glow-video-kapak.webp"
   }
 ]
