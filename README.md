@@ -16,8 +16,8 @@ Bu dizinde `python3 -m http.server 8000` çalıştırıp `http://localhost:8000`
 
 ## Galeriyi güncelleme
 
-- **Galeri yönetimi** üzerinden görsel veya video ekleyin, dosyayı değiştirin, açıklama yazın, öğeyi sıralayın veya silin.
+- `admin.html` adresindeki **Galeri yönetimi** üzerinden görsel veya video ekleyin, dosyayı değiştirin, açıklama yazın, öğeyi sıralayın veya silin.
 - **Taslağı önizle** ile aynı tarayıcıda sonucu görün.
-- Yayımlamak için `fevzicakmak/carvingengineer` deposuna ve yalnızca o depoya yazma izni olan fine-grained GitHub token (Contents: Read and write) girin. Anahtar sayfada kalıcı saklanmaz. Yüklenen dosyaların gereksiz EXIF bilgilerini yayımdan önce kaldırın.
+- Yönetim ekranını açmak ve yayımlamak için `fevzicakmak/carvingengineer` deposuna ve yalnızca o depoya yazma izni olan fine-grained GitHub token (Contents: Read and write) girin. Anahtar GitHub’da hesap sahibi doğrulaması için kullanılır ve yalnızca açık yönetim sekmesinin belleğinde tutulur. Yüklenen dosyaların gereksiz EXIF bilgilerini yayımdan önce kaldırın.
 - Yayım tek Git commit’i oluşturur. Kaldırılan öğe siteden kalkar. Daha önce yayımlanmış kopyalar Git geçmişinde kalabilir.
 - Görsel sınırı 8 MB, video sınırı 20 MB. Video için H.264 kodlamalı MP4 en geniş telefon desteğini sağlar.

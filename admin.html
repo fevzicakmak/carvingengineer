@@ -13,10 +13,22 @@
   <header class="top shell"><a href="./" class="brand">Fevzi Çakmak <span>Taş heykel</span></a><a href="./">Siteye dön</a></header>
   <main class="shell admin-main">
     <h1 style="font-size:clamp(2.8rem,7vw,5rem);line-height:1">Galeri yönetimi</h1>
+    <section id="access" class="admin-panel">
+      <h2>Yönetici girişi</h2>
+      <form id="unlock">
+        <div class="form-grid">
+          <label class="wide">GitHub erişim anahtarı<input name="token" type="password" required autocomplete="off" autocapitalize="none" spellcheck="false"></label>
+        </div>
+        <p>Fevzi Çakmak’ın GitHub hesabına ait, bu depoda <strong>Contents: Read and write</strong> izni olan bir anahtar kullanın.</p>
+        <div class="controls"><button class="action" type="submit">Yönetimi aç</button></div>
+      </form>
+    </section>
+    <div id="management" hidden>
     <p>Eklemeler, düzenlemeler ve silmeler bu tarayıcıda taslak olarak saklanır. Yayımladığınızda ziyaretçiler güncel galeriyi görür.</p>
     <div class="controls">
       <button class="action" type="button" id="add" disabled>Medya ekle</button>
-      <a href="./?taslak=1" target="_blank" rel="noopener">Taslağı önizle</a>
+      <button type="button" id="preview">Taslağı önizle</button>
+      <button type="button" id="lock">Yönetimi kilitle</button>
     </div>
     <form id="editor" class="admin-panel" hidden>
       <h2 id="editor-title">Medya ekle</h2>
@@ -34,15 +46,10 @@
     <section class="admin-panel">
       <h2>Yayımla</h2>
       <form id="publish">
-        <div class="form-grid">
-          <label>GitHub deposu<input name="repo" value="fevzicakmak/carvingengineer" required pattern="[A-Za-z0-9_.\-]+/[A-Za-z0-9_.\-]+" autocomplete="off"></label>
-          <label>Dal<input name="branch" value="main" required autocomplete="off"></label>
-          <label class="wide">GitHub erişim anahtarı<input name="token" type="password" required autocomplete="off" spellcheck="false"></label>
-        </div>
-        <p>Seçili depoya <strong>Contents: Read and write</strong> izni olan bir GitHub anahtarı kullanın. Anahtar tarayıcıda saklanmaz.</p>
         <div class="controls"><button class="action" type="submit" id="publish-button" disabled>Değişiklikleri yayımla</button><button type="button" id="reset-draft" disabled>Taslağı sıfırla</button></div>
       </form>
     </section>
+    </div>
     <p role="status" id="admin-status" aria-live="polite"></p>
   </main>
 </body>

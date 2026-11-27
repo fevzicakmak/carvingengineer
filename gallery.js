@@ -1,4 +1,4 @@
-import { loadCatalog, loadDraft, types } from './catalog.js';
+import { loadCatalog, types } from './catalog.js';
 
 const get = id => document.getElementById(id);
 const grid = get('gallery-grid');
@@ -115,11 +115,31 @@ dialog.addEventListener('keydown', event => {
   }
 });
 
+function requestPreview() {
+  if (!draftMode || !window.opener) return Promise.resolve(null);
+  const manager = window.opener;
+  return new Promise(resolve => {
+    function receive(event) {
+      if (event.origin !== location.origin || event.source !== manager ||
+          event.data?.type !== 'gallery-preview' || !Array.isArray(event.data.items)) return;
+      clearTimeout(timeout);
+      window.removeEventListener('message', receive);
+      resolve(event.data);
+    }
+    const timeout = setTimeout(() => {
+      window.removeEventListener('message', receive);
+      resolve(null);
+    }, 2000);
+    window.addEventListener('message', receive);
+    manager.postMessage('gallery-preview-ready', location.origin);
+  });
+}
+
 try {
-  const draft = draftMode ? await loadDraft() : null;
+  const draft = await requestPreview();
   catalog = draft?.items ?? await loadCatalog();
   draftFiles = draft?.files ?? {};
-  if (draftMode) document.querySelector('.eyebrow').textContent = 'Taslak önizleme';
+  if (draft) document.querySelector('.eyebrow').textContent = 'Taslak önizleme';
   hero();
   render();
 } catch (error) {

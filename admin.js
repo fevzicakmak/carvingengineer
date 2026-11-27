@@ -1,9 +1,10 @@
 import { loadCatalog, loadDraft, saveDraft, dropDraft, types } from './catalog.js';
-import { publishGallery } from './github.js';
+import { publishGallery, verifyOwner } from './github.js';
 
 const get = id => document.getElementById(id);
 const editor = get('editor');
 const fields = editor.elements;
+const unlockForm = get('unlock');
 const publishForm = get('publish');
 const status = get('admin-status');
 const imageTypes = { jpg:'jpg', jpeg:'jpg', png:'png', webp:'webp', gif:'gif', avif:'avif' };
@@ -13,6 +14,8 @@ let items = [];
 let files = {};
 let editingId = null;
 let busy = false;
+let ownerToken = '';
+let previewWindow;
 
 function message(text, error = false) {
   status.textContent = text;
@@ -92,7 +95,7 @@ function stageFile(file, allowed, maxMB, output) {
 }
 
 async function change(nextItems, nextFiles, success) {
-  if (busy) return false;
+  if (!ownerToken || busy) return false;
   busy = true;
   render();
   try {
@@ -128,7 +131,7 @@ async function remove(item) {
 
 editor.addEventListener('submit', async event => {
   event.preventDefault();
-  if (busy) return;
+  if (!ownerToken || busy) return;
   try {
     const original = items.find(item => item.id === editingId);
     const title = fields.title.value.trim();
@@ -163,7 +166,7 @@ fields.type.addEventListener('change', updateFields);
 get('add').addEventListener('click', () => openEditor());
 get('cancel').addEventListener('click', () => { editor.hidden = true; });
 get('reset-draft').addEventListener('click', async () => {
-  if (busy || !window.confirm('Yayımlanmamış galeri değişiklikleri silinsin mi?')) return;
+  if (!ownerToken || busy || !window.confirm('Yayımlanmamış galeri değişiklikleri silinsin mi?')) return;
   busy = true;
   render();
   try {
@@ -184,17 +187,12 @@ get('reset-draft').addEventListener('click', async () => {
 
 publishForm.addEventListener('submit', async event => {
   event.preventDefault();
-  if (busy) return;
-  const { repo, branch, token } = Object.fromEntries(new FormData(publishForm));
-  if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) {
-    message('Depo adını kullanıcı/depo biçiminde girin.', true);
-    return;
-  }
+  if (!ownerToken || busy) return;
   busy = true;
   render();
   message('Değişiklikler GitHub’a gönderiliyor…');
   try {
-    await publishGallery({ repo, branch, token:token.trim(), base, items, files });
+    await publishGallery({ repo:'fevzicakmak/carvingengineer', branch:'main', token:ownerToken, base, items, files });
     base = items;
     files = {};
     await dropDraft().catch(() => saveDraft({base, items, files})).catch(() => {});
@@ -202,18 +200,59 @@ publishForm.addEventListener('submit', async event => {
   } catch (error) {
     message(error.message, true);
   } finally {
-    publishForm.elements.token.value = '';
     busy = false;
     render();
   }
 });
 
-try {
-  const draft = await loadDraft();
-  base = draft?.base ?? await loadCatalog();
-  items = draft?.items ?? base;
-  files = draft?.files ?? {};
-  render();
-} catch (error) {
-  message(error.message || 'Galeri yüklenemedi.', true);
-}
+unlockForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (busy) return;
+  const tokenField = unlockForm.elements.token;
+  const token = tokenField.value.trim();
+  tokenField.value = '';
+  if (!token) return;
+  const submit = unlockForm.querySelector('button');
+  busy = true;
+  submit.disabled = true;
+  message('GitHub hesabı doğrulanıyor…');
+  try {
+    await verifyOwner(token);
+    const draft = await loadDraft();
+    base = draft?.base ?? await loadCatalog();
+    items = draft?.items ?? base;
+    files = draft?.files ?? {};
+    ownerToken = token;
+    get('access').hidden = true;
+    get('management').hidden = false;
+    message('Yönetim ekranı açıldı.');
+  } catch (error) {
+    message(error.message || 'Yönetim ekranı açılamadı.', true);
+  } finally {
+    busy = false;
+    submit.disabled = false;
+    if (ownerToken) {
+      render();
+      get('add').focus();
+    }
+  }
+});
+
+get('lock').addEventListener('click', () => {
+  if (busy) return;
+  previewWindow?.close();
+  location.reload();
+});
+
+get('preview').addEventListener('click', () => {
+  if (!ownerToken || busy) return;
+  previewWindow?.close();
+  previewWindow = window.open('./?taslak=1', '_blank');
+  if (!previewWindow) message('Önizleme sekmesi engellendi.', true);
+});
+
+window.addEventListener('message', event => {
+  if (!ownerToken || !previewWindow || event.origin !== location.origin ||
+      event.source !== previewWindow || event.data !== 'gallery-preview-ready') return;
+  previewWindow.postMessage({ type:'gallery-preview', items, files }, location.origin);
+});

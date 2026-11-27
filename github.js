@@ -60,3 +60,20 @@ export async function publishGallery({ repo, branch, token, base, items, files }
   await request(`/git/refs/heads/${branchPath}`, 'PATCH', { sha:updatedCommit.sha, force:false });
   return updatedCommit.sha;
 }
+
+export async function verifyOwner(token) {
+  const response = await fetch(api + '/user', {
+    headers: {
+      Accept: 'application/vnd.github+json',
+      Authorization: 'Bearer ' + token,
+      'X-GitHub-Api-Version': '2022-11-28'
+    },
+    cache: 'no-store'
+  });
+  if (response.status === 401 || response.status === 403) {
+    throw new Error('GitHub erişim anahtarı kabul edilmedi.');
+  }
+  if (!response.ok) throw new Error('GitHub hesabı şu anda doğrulanamadı.');
+  const account = await response.json();
+  if (account.id !== 218658870) throw new Error('Bu ekran yalnızca site sahibine açıktır.');
+}
