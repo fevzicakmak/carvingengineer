@@ -111,11 +111,21 @@
   },
   {
     "id": "muze-tas-portal",
-    "title": "Taş portal",
+    "title": "Gordiana (Çorum)",
     "type": "image",
-    "src": "assets/gallery-muze-tas-portal.webp",
-    "label": "Müze Sergisi",
-    "description": "Sivri taş kütlesinin alt bölümünde sütunlu bir giriş."
+    "src": "assets/muze-2026-gordiana.webp",
+    "description": "Sivri taş kütlesinin alt bölümünde sütunlu bir giriş.",
+    "coverCaption": "Sütunlu giriş ve sivri taş kütlesi",
+    "views": [
+      {
+        "src": "assets/muze-2026-gordiana-sergi.webp",
+        "caption": "Sergideki diğer yontularla birlikte"
+      },
+      {
+        "src": "assets/gallery-muze-tas-portal.webp",
+        "caption": "Önceki görünüm"
+      }
+    ]
   },
   {
     "id": "muze-kemerli-pencere",
@@ -156,5 +166,131 @@
     "src": "assets/cifte-kopru.html",
     "label": "Dijital 3B model",
     "description": "Modeli sürükleyerek döndürebilir ve ayrıntılara yakınlaşabilirsiniz."
+  },
+  {
+    "id": "muze-2026-salon",
+    "type": "image",
+    "title": "Sergi salonu",
+    "src": "assets/muze-2026-salon.webp",
+    "coverCaption": "Salondan genel görünüm",
+    "views": [
+      {
+        "src": "assets/muze-2026-yerlesim.webp",
+        "caption": "Sergi düzeni"
+      },
+      {
+        "src": "assets/muze-2026-giris.webp",
+        "caption": "Sergi girişi"
+      }
+    ]
+  },
+  {
+    "id": "muze-2026-afis",
+    "type": "image",
+    "title": "Zamanın İzinde sergi afişi",
+    "src": "assets/muze-2026-afis.webp",
+    "coverCaption": "Zamanın İzinde sergi afişi"
+  },
+  {
+    "id": "muze-2026-acilis",
+    "type": "image",
+    "title": "Sergi açılışından",
+    "src": "assets/muze-2026-acilis.webp",
+    "coverCaption": "Açılış konuşmasından bir kare",
+    "views": [
+      {
+        "src": "assets/muze-2026-ziyaretciler.webp",
+        "caption": "Sergi ziyaretçileri"
+      },
+      {
+        "src": "assets/muze-2026-eser-anlatimi.webp",
+        "caption": "Sergide eser anlatımı"
+      },
+      {
+        "src": "assets/muze-2026-grup.webp",
+        "caption": "Üç katlı galeri eserinin önünde grup fotoğrafı"
+      }
+    ]
+  },
+  {
+    "id": "muze-2026-acilis-konusmasi",
+    "title": "Açılış konuşması",
+    "type": "video",
+    "src": "assets/muze-2026-acilis-konusmasi.mp4",
+    "poster": "assets/muze-2026-acilis-konusmasi-kapak.webp"
+  },
+  {
+    "id": "muze-2026-sergi-turu",
+    "title": "Sergi salonundan kısa video",
+    "type": "video",
+    "src": "assets/muze-2026-sergi-turu.mp4",
+    "poster": "assets/muze-2026-sergi-turu-kapak.webp"
+  },
+  {
+    "id": "muze-2026-avlu",
+    "type": "image",
+    "title": "Avlu",
+    "src": "assets/muze-2026-avlu.webp",
+    "coverCaption": "Sergideki genel görünüm",
+    "views": [
+      {
+        "src": "assets/muze-2026-avlu-detay.webp",
+        "caption": "Kemerler ve avlunun yan görünümü"
+      }
+    ]
+  },
+  {
+    "id": "muze-2026-ionics",
+    "type": "image",
+    "title": "Ionics – I",
+    "src": "assets/muze-2026-ionics-on.webp",
+    "coverCaption": "Ön görünüm",
+    "views": [
+      {
+        "src": "assets/muze-2026-ionics.webp",
+        "caption": "Sol açı"
+      },
+      {
+        "src": "assets/muze-2026-ionics-sag.webp",
+        "caption": "Sağ açı"
+      }
+    ]
+  },
+  {
+    "id": "muze-2026-ciglik-tepesi",
+    "type": "image",
+    "title": "Çığlık Tepesi",
+    "src": "assets/muze-2026-ciglik-tepesi.webp",
+    "coverCaption": "Sergideki görünüm"
+  },
+  {
+    "id": "muze-2026-merdivenli",
+    "type": "image",
+    "title": "Üç katlı galeri",
+    "src": "assets/muze-2026-galeri-on.webp",
+    "coverCaption": "Üç katlı galerinin ön görünümü",
+    "views": [
+      {
+        "src": "assets/muze-2026-galeri-yan.webp",
+        "caption": "Galeri ve basamakların yan görünümü"
+      }
+    ]
+  },
+  {
+    "id": "muze-2026-cephe",
+    "type": "image",
+    "title": "Sivri kemerli mermer yontu",
+    "src": "assets/muze-2026-cephe-on.webp",
+    "coverCaption": "Ön görünüm",
+    "views": [
+      {
+        "src": "assets/muze-2026-cephe-siyah-beyaz.webp",
+        "caption": "Siyah-beyaz görünüm"
+      },
+      {
+        "src": "assets/muze-2026-cephe-detay.webp",
+        "caption": "Sütun tabanlarının ayrıntısı"
+      }
+    ]
   }
 ]

@@ -2,17 +2,153 @@
   "pages": [
     {
       "id": "muze-sergisi",
-      "title": "Müze Sergisi",
+      "title": "T.C İzmir Arkeoloji Müzesi Sergisi",
       "slug": "muze-sergisi",
       "menu": true,
       "blocks": [
         {
           "id": "muze-giris",
           "type": "text",
-          "text": "Sergilenen taş yontulardan seçilmiş fotoğraflar.",
+          "text": "12–28 Mart 2026 · İzmir Kültür Sanat Fabrikası",
           "size": "normal",
           "tone": "muted",
           "face": "sans"
+        },
+        {
+          "id": "muze-2026-salon-icerik",
+          "type": "image",
+          "mediaId": "muze-2026-salon",
+          "fit": "wide"
+        },
+        {
+          "id": "muze-2026-afis-baslik",
+          "type": "heading",
+          "text": "Zamanın İzinde",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-2026-afis-icerik",
+          "type": "image",
+          "mediaId": "muze-2026-afis",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-2026-acilis-baslik",
+          "type": "heading",
+          "text": "Sergi açılışından",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-2026-acilis-icerik",
+          "type": "image",
+          "mediaId": "muze-2026-acilis",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-2026-konusma-baslik",
+          "type": "heading",
+          "text": "Açılış konuşması",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-2026-acilis-konusmasi-icerik",
+          "type": "video",
+          "mediaId": "muze-2026-acilis-konusmasi",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-2026-tur-baslik",
+          "type": "heading",
+          "text": "Sergi salonundan kısa video",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-2026-sergi-turu-icerik",
+          "type": "video",
+          "mediaId": "muze-2026-sergi-turu",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-2026-avlu-baslik",
+          "type": "heading",
+          "text": "Avlu",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-2026-avlu-icerik",
+          "type": "image",
+          "mediaId": "muze-2026-avlu",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-2026-ionics-baslik",
+          "type": "heading",
+          "text": "Ionics – I",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-2026-ionics-icerik",
+          "type": "image",
+          "mediaId": "muze-2026-ionics",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-2026-ciglik-tepesi-baslik",
+          "type": "heading",
+          "text": "Çığlık Tepesi",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-2026-ciglik-tepesi-icerik",
+          "type": "image",
+          "mediaId": "muze-2026-ciglik-tepesi",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-2026-merdivenli-baslik",
+          "type": "heading",
+          "text": "Üç katlı galeri",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-2026-merdivenli-icerik",
+          "type": "image",
+          "mediaId": "muze-2026-merdivenli",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-2026-cephe-baslik",
+          "type": "heading",
+          "text": "Sivri kemerli mermer yontu",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-2026-cephe-icerik",
+          "type": "image",
+          "mediaId": "muze-2026-cephe",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-2026-gordiana-baslik",
+          "type": "heading",
+          "text": "Gordiana (Çorum)",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-tas-portal-icerik",
+          "type": "image",
+          "mediaId": "muze-tas-portal",
+          "fit": "compact"
         },
         {
           "id": "muze-kemerli-galeri-baslik",
@@ -77,19 +213,6 @@
           "id": "muze-sutunlu-aciklik-gorsel",
           "type": "image",
           "mediaId": "muze-sutunlu-aciklik",
-          "fit": "compact"
-        },
-        {
-          "id": "muze-tas-portal-baslik",
-          "type": "heading",
-          "text": "Taş portal",
-          "size": "small",
-          "face": "serif"
-        },
-        {
-          "id": "muze-tas-portal-gorsel",
-          "type": "image",
-          "mediaId": "muze-tas-portal",
           "fit": "compact"
         },
         {
