@@ -1,5 +1,68 @@
 [
   {
+    "id": "kus-saraylari-eser",
+    "title": "Kuş Sarayları",
+    "type": "image",
+    "src": "assets/gallery-kus-saraylari-on-cephe.webp",
+    "coverCaption": "Ön cephe ve yan yüz",
+    "views": [
+      {
+        "src": "assets/gallery-kus-saraylari-kemer.webp",
+        "caption": "Ön kemer ve balkon"
+      },
+      {
+        "src": "assets/gallery-kus-saraylari-yan-yuz.webp",
+        "caption": "Bezemeli yan yüz"
+      },
+      {
+        "src": "assets/gallery-kus-saraylari-arka-yuz.webp",
+        "caption": "Arka yüz ve oyuk"
+      },
+      {
+        "src": "assets/gallery-kus-saraylari-rozet.webp",
+        "caption": "Rozet ve bezeme ayrıntısı"
+      },
+      {
+        "src": "assets/gallery-kus-saraylari-yontu-asamasi.webp",
+        "caption": "Yontu aşamasında ön cephe"
+      }
+    ],
+    "label": "Eser fotoğrafları",
+    "description": "Kuş sarayının ön, yan ve arka yüzleri ile rozet ve kemer ayrıntıları."
+  },
+  {
+    "id": "kus-saraylari-eser-turu",
+    "title": "Kuş sarayının çevresinden görünüm",
+    "type": "video",
+    "src": "assets/gallery-kus-saraylari-eser-turu.mp4",
+    "poster": "assets/gallery-kus-saraylari-eser-turu-kapak.webp",
+    "label": "Kuş Sarayları"
+  },
+  {
+    "id": "kus-saraylari-yontma-1",
+    "title": "Yontma süreci · 1",
+    "type": "video",
+    "src": "assets/gallery-kus-saraylari-yontma-1.mp4",
+    "poster": "assets/gallery-kus-saraylari-yontma-1-kapak.webp",
+    "label": "Kuş Sarayları"
+  },
+  {
+    "id": "kus-saraylari-yontma-2",
+    "title": "Yontma süreci · 2",
+    "type": "video",
+    "src": "assets/gallery-kus-saraylari-yontma-2.mp4",
+    "poster": "assets/gallery-kus-saraylari-yontma-2-kapak.webp",
+    "label": "Kuş Sarayları"
+  },
+  {
+    "id": "kus-saraylari-yontma-3",
+    "title": "Yontma süreci · 3",
+    "type": "video",
+    "src": "assets/gallery-kus-saraylari-yontma-3.mp4",
+    "poster": "assets/gallery-kus-saraylari-yontma-3-kapak.webp",
+    "label": "Kuş Sarayları"
+  },
+  {
     "id": "muze-kemerli-galeri",
     "title": "Kemerli galeri",
     "type": "image",

@@ -195,21 +195,25 @@ function displayPages(site, previewing) {
       const media = catalog.find(item => item.id === block.mediaId && item.type === block.type);
       const src = asset(media?.src);
       if (!src) continue;
-      const image = block.type === 'image';
       const figure = element('figure', '', 'page-block');
       if (block.fit === 'compact') figure.classList.add('is-compact');
-      const node = element(image ? 'img' : 'video');
-      node.src = src;
-      if (image) {
-        node.alt = media.title;
-        node.loading = 'lazy';
+      if (block.type === 'image' && media.views?.length) {
+        showImage(media, figure);
+      } else if (block.type === 'image') {
+        const image = element('img');
+        image.alt = media.title;
+        image.loading = 'lazy';
+        image.src = src;
+        figure.append(image);
       } else {
-        node.controls = true;
-        node.playsInline = true;
-        node.preload = 'metadata';
-        if (asset(media.poster)) node.poster = asset(media.poster);
+        const video = element('video');
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        if (asset(media.poster)) video.poster = asset(media.poster);
+        video.src = src;
+        figure.append(video);
       }
-      figure.append(node);
       if (media.label) figure.append(element('figcaption', media.label));
       content.append(figure);
     } else if (block.type === 'link') {

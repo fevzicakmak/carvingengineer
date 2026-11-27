@@ -139,6 +139,72 @@
           "href": "https://carvingengineer.com/#galeri"
         }
       ]
+    },
+    {
+      "id": "kus-saraylari",
+      "title": "Kuş Sarayları",
+      "slug": "kus-saraylari",
+      "menu": true,
+      "blocks": [
+        {
+          "id": "kus-saraylari-fotograflar",
+          "type": "image",
+          "mediaId": "kus-saraylari-eser",
+          "fit": "compact"
+        },
+        {
+          "id": "kus-saraylari-eser-turu-baslik",
+          "type": "heading",
+          "text": "Kuş sarayının çevresinden görünüm",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "kus-saraylari-eser-turu-video",
+          "type": "video",
+          "mediaId": "kus-saraylari-eser-turu",
+          "fit": "compact"
+        },
+        {
+          "id": "kus-saraylari-yontma-1-baslik",
+          "type": "heading",
+          "text": "Yontma süreci · 1",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "kus-saraylari-yontma-1-video",
+          "type": "video",
+          "mediaId": "kus-saraylari-yontma-1",
+          "fit": "compact"
+        },
+        {
+          "id": "kus-saraylari-yontma-2-baslik",
+          "type": "heading",
+          "text": "Yontma süreci · 2",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "kus-saraylari-yontma-2-video",
+          "type": "video",
+          "mediaId": "kus-saraylari-yontma-2",
+          "fit": "compact"
+        },
+        {
+          "id": "kus-saraylari-yontma-3-baslik",
+          "type": "heading",
+          "text": "Yontma süreci · 3",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "kus-saraylari-yontma-3-video",
+          "type": "video",
+          "mediaId": "kus-saraylari-yontma-3",
+          "fit": "compact"
+        }
+      ]
     }
   ]
 }
