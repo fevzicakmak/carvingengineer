@@ -15,9 +15,9 @@
 <body>
   <header class="top shell">
     <a href="./" class="brand">Fevzi Çakmak <span>Taş heykel</span></a>
-    <nav aria-label="Ana menü"><a href="#galeri">Galeri</a><a href="#sanatci">Sanatçı</a><a href="#iletisim">İletişim</a></nav>
+    <nav aria-label="Ana menü" id="site-nav"><a href="#galeri">Galeri</a><a href="#sanatci">Sanatçı</a><a href="#iletisim">İletişim</a></nav>
   </header>
-  <main>
+  <main id="home">
     <section class="hero shell">
       <div class="hero-copy">
         <p class="eyebrow">Kozbeyli · Foça</p>
@@ -51,6 +51,10 @@
       </div>
     </section>
     <section class="contact shell section-split" id="iletisim"><h2>İletişim</h2><div><p>Eserler ve sergi talepleri için Etsy mağazasından mesaj gönderebilirsiniz.</p><a class="primary" href="https://www.etsy.com/shop/CarvingstoneArt">CarvingstoneArt · Etsy</a></div></section>
+  </main>
+  <main id="custom-page" class="custom-page shell" hidden>
+    <h1 id="custom-title"></h1>
+    <div id="custom-blocks"></div>
   </main>
   <footer class="shell"><span>© Fevzi Çakmak</span></footer>
   <dialog id="viewer" aria-labelledby="viewer-title">

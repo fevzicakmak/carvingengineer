@@ -1,5 +1,9 @@
-import { loadCatalog, loadDraft, saveDraft, dropDraft, types } from './catalog.js';
+import { loadCatalog, loadSite, loadDraft, saveDraft, dropDraft, types } from './catalog.js';
 import { publishGallery, verifyOwner } from './github.js';
+
+import { createPageEditor } from './page-editor.js';
+import { dragHandle } from './drag-order.js';
+import { emptySite, moveEntry, pageUrl } from './site-content.js';
 
 const get = id => document.getElementById(id);
 const editor = get('editor');
@@ -11,11 +15,33 @@ const imageTypes = { jpg:'jpg', jpeg:'jpg', png:'png', webp:'webp', gif:'gif', a
 const videoTypes = { mp4:'mp4', webm:'webm' };
 let base = [];
 let items = [];
+let baseSite = emptySite();
+let site = baseSite;
 let files = {};
 let editingId = null;
 let busy = false;
 let ownerToken = '';
 let previewWindow;
+
+const pageEditor = createPageEditor({
+  getSite: () => site,
+  getMedia: () => items,
+  save: (next, success) => change(items, files, success, next),
+  preview: openPreview,
+  report: message,
+  openMedia: () => switchPanel(true),
+  uploadMedia: addPageMedia
+});
+
+function switchPanel(media) {
+  get('pages-panel').hidden = media;
+  get('media-panel').hidden = !media;
+  get('show-pages').setAttribute('aria-pressed', String(!media));
+  get('show-media').setAttribute('aria-pressed', String(media));
+}
+
+get('show-pages').addEventListener('click', () => switchPanel(false));
+get('show-media').addEventListener('click', () => switchPanel(true));
 
 function message(text, error = false) {
   status.textContent = text;
@@ -50,12 +76,27 @@ function render() {
       button('Düzenle', () => openEditor(item)),
       button('Sil', () => remove(item))
     );
-    row.append(name, controls);
+    const handle = dragHandle(row, 'media', item.id, (from, to) => {
+      if (!ownerToken || busy) return;
+      if (to === 'trash') {
+        remove(item);
+        return;
+      }
+      const first = items.findIndex(entry => entry.id === from);
+      const last = items.findIndex(entry => entry.id === to);
+      if (first >= 0 && last >= 0) {
+        change(moveEntry(items, first, last), files, 'Galeri sırası kaydedildi.');
+      }
+    });
+    row.append(handle, name, controls);
     return row;
   }));
   if (!items.length) list.textContent = 'Galeride henüz içerik yok.';
-  const changed = JSON.stringify(items) !== JSON.stringify(base);
+  const changed = JSON.stringify(items) !== JSON.stringify(base) ||
+    JSON.stringify(site) !== JSON.stringify(baseSite);
   get('add').disabled = busy;
+  get('media-files').disabled = busy;
+  pageEditor.setBusy(busy);
   get('publish-button').disabled = busy || !changed;
   get('reset-draft').disabled = busy || !changed;
 }
@@ -94,16 +135,26 @@ function stageFile(file, allowed, maxMB, output) {
   return path;
 }
 
-async function change(nextItems, nextFiles, success) {
+async function change(nextItems, nextFiles, success, nextSite = site) {
   if (!ownerToken || busy) return false;
   busy = true;
   render();
   try {
+    const mediaById = new Map(nextItems.map(item => [item.id, item]));
+    for (const page of nextSite.pages) {
+      for (const block of page.blocks) {
+        if (block.mediaId && mediaById.get(block.mediaId)?.type !== block.type) {
+          throw new Error('“' + page.title + '” sayfasında kullanılan medyanın türünü değiştirmeden önce ilgili bloğu düzenleyin.');
+        }
+      }
+    }
     const used = new Set(nextItems.flatMap(item => [item.src, item.poster].filter(Boolean)));
     const retained = Object.fromEntries(Object.entries(nextFiles).filter(([path]) => used.has(path)));
-    await saveDraft({ base, items:nextItems, files:retained });
+    await saveDraft({ base, items:nextItems, files:retained, baseSite, site:nextSite });
+    site = nextSite;
     items = nextItems;
     files = retained;
+    pageEditor.render();
     message(success);
     return true;
   } catch (error) {
@@ -123,8 +174,13 @@ async function move(index, offset) {
 }
 
 async function remove(item) {
-  if (!window.confirm('“' + item.title + '” taslak galeriden silinsin mi?')) return;
-  if (await change(items.filter(entry => entry.id !== item.id), files, 'Medya taslaktan silindi.')) {
+  const used = site.pages.some(page => page.blocks.some(block => block.mediaId === item.id));
+  const detail = used ? ' Bu medyayı kullanan sayfa blokları da silinecek.' : '';
+  if (!ownerToken || busy || !window.confirm('“' + item.title + '” taslaktan silinsin mi?' + detail)) return;
+  const nextSite = used ? { pages:site.pages.map(page => ({
+    ...page, blocks:page.blocks.filter(block => block.mediaId !== item.id)
+  })) } : site;
+  if (await change(items.filter(entry => entry.id !== item.id), files, 'Medya taslaktan silindi.', nextSite)) {
     if (editingId === item.id) editor.hidden = true;
   }
 }
@@ -166,17 +222,19 @@ fields.type.addEventListener('change', updateFields);
 get('add').addEventListener('click', () => openEditor());
 get('cancel').addEventListener('click', () => { editor.hidden = true; });
 get('reset-draft').addEventListener('click', async () => {
-  if (!ownerToken || busy || !window.confirm('Yayımlanmamış galeri değişiklikleri silinsin mi?')) return;
+  if (!ownerToken || busy || !window.confirm('Yayımlanmamış site değişiklikleri silinsin mi?')) return;
   busy = true;
   render();
   try {
-    const fresh = await loadCatalog();
+    const [fresh, freshSite] = await Promise.all([loadCatalog(), loadSite()]);
     await dropDraft();
     base = fresh;
     items = fresh;
+    baseSite = site = freshSite;
+    pageEditor.render();
     files = {};
     editor.hidden = true;
-    message('Yayımdaki galeri yüklendi.');
+    message('Yayımdaki site içeriği yüklendi.');
   } catch (error) {
     message(error.message, true);
   } finally {
@@ -192,11 +250,12 @@ publishForm.addEventListener('submit', async event => {
   render();
   message('Değişiklikler GitHub’a gönderiliyor…');
   try {
-    await publishGallery({ repo:'fevzicakmak/carvingengineer', branch:'main', token:ownerToken, base, items, files });
+    await publishGallery({ repo:'fevzicakmak/carvingengineer', branch:'main', token:ownerToken, base, items, files, baseSite, site });
     base = items;
+    baseSite = site;
     files = {};
-    await dropDraft().catch(() => saveDraft({base, items, files})).catch(() => {});
-    message('Galeri GitHub’a kaydedildi. GitHub Pages dağıtımı tamamlanınca site güncellenecek.');
+    await dropDraft().catch(() => saveDraft({base, items, files, baseSite, site})).catch(() => {});
+    message('Site içeriği GitHub’a kaydedildi. GitHub Pages dağıtımı tamamlanınca site güncellenecek.');
   } catch (error) {
     message(error.message, true);
   } finally {
@@ -222,6 +281,9 @@ unlockForm.addEventListener('submit', async event => {
     base = draft?.base ?? await loadCatalog();
     items = draft?.items ?? base;
     files = draft?.files ?? {};
+    baseSite = draft?.baseSite ?? await loadSite();
+    site = draft?.site ?? baseSite;
+    pageEditor.render();
     ownerToken = token;
     get('access').hidden = true;
     get('management').hidden = false;
@@ -233,7 +295,7 @@ unlockForm.addEventListener('submit', async event => {
     submit.disabled = false;
     if (ownerToken) {
       render();
-      get('add').focus();
+      get('show-pages').focus();
     }
   }
 });
@@ -244,15 +306,76 @@ get('lock').addEventListener('click', () => {
   location.reload();
 });
 
-get('preview').addEventListener('click', () => {
+function openPreview(slug) {
   if (!ownerToken || busy) return;
   previewWindow?.close();
-  previewWindow = window.open('./?taslak=1', '_blank');
+  previewWindow = window.open(pageUrl(slug, true), '_blank');
   if (!previewWindow) message('Önizleme sekmesi engellendi.', true);
-});
+}
+get('preview').addEventListener('click', () => openPreview());
 
 window.addEventListener('message', event => {
   if (!ownerToken || !previewWindow || event.origin !== location.origin ||
       event.source !== previewWindow || event.data !== 'gallery-preview-ready') return;
-  previewWindow.postMessage({ type:'gallery-preview', items, files }, location.origin);
+  previewWindow.postMessage({ type:'gallery-preview', items, files, site }, location.origin);
+});
+
+
+function importFiles(selected, output, expectedType) {
+  return [...selected].map(file => {
+    const extension = file.name.split('.').pop().toLowerCase();
+    const type = Object.hasOwn(videoTypes, extension) ? 'video' : 'image';
+    if (expectedType && type !== expectedType) throw new Error('Bu blok için ' + types[expectedType].toLocaleLowerCase('tr') + ' dosyası seçin.');
+    return {
+      id:crypto.randomUUID(),
+      title:file.name.replace(/\.[^.]+$/, '').slice(0, 100) || types[type],
+      type, src:stageFile(file, type === 'video' ? videoTypes : imageTypes, type === 'video' ? 20 : 8, output)
+    };
+  });
+}
+
+async function importGallery(selected) {
+  if (!ownerToken || busy || !selected.length) return;
+  try {
+    const nextFiles = { ...files };
+    const imported = importFiles(selected, nextFiles);
+    await change([...items, ...imported], nextFiles, 'Medya kütüphaneye eklendi.');
+  } catch (error) {
+    message(error.message, true);
+  }
+}
+
+async function addPageMedia({ selected, page, current, type, fit }) {
+  if (!ownerToken || busy || !selected.length) return false;
+  try {
+    const nextFiles = { ...files };
+    const imported = importFiles(selected, nextFiles, type);
+    const blocks = imported.map((item, index) => ({
+      id:index === 0 && current ? current.id : crypto.randomUUID(),
+      type, mediaId:item.id, fit
+    }));
+    const nextBlocks = current ? page.blocks.flatMap(block => block.id === current.id ? blocks : [block]) : [...page.blocks, ...blocks];
+    const nextSite = { pages:site.pages.map(entry => entry.id === page.id ? { ...entry, blocks:nextBlocks } : entry) };
+    return change([...items, ...imported], nextFiles, 'Medya sayfaya ve kütüphaneye eklendi.', nextSite);
+  } catch (error) {
+    message(error.message, true);
+    return false;
+  }
+}
+
+get('media-files').addEventListener('change', async event => {
+  const field = event.currentTarget;
+  await importGallery(field.files);
+  field.value = '';
+});
+const mediaDrop = get('media-drop');
+mediaDrop.addEventListener('dragover', event => {
+  event.preventDefault();
+  if (!busy) mediaDrop.classList.add('drop-target');
+});
+mediaDrop.addEventListener('dragleave', () => mediaDrop.classList.remove('drop-target'));
+mediaDrop.addEventListener('drop', event => {
+  event.preventDefault();
+  mediaDrop.classList.remove('drop-target');
+  if (event.dataTransfer.files.length) importGallery(event.dataTransfer.files);
 });

@@ -1,8 +1,17 @@
+import { emptySite } from './site-content.js';
+
 export const types = { image: 'Görsel', video: 'Video', model: '3B model' };
 
 export async function loadCatalog() {
   const response = await fetch('./gallery.json', { cache: 'no-cache' });
   if (!response.ok) throw new Error('Galeri içeriği yüklenemedi.');
+  return response.json();
+}
+
+export async function loadSite() {
+  const response = await fetch('./site.json', { cache:'no-cache' });
+  if (response.status === 404) return emptySite();
+  if (!response.ok) throw new Error('Sayfa içeriği yüklenemedi.');
   return response.json();
 }
 

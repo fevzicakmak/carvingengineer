@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>Galeri yönetimi · Fevzi Çakmak</title>
+  <title>Site yönetimi · Fevzi Çakmak</title>
   <link rel="icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="style.css">
   <script type="module" src="admin.js"></script>
@@ -12,7 +12,7 @@
 <body>
   <header class="top shell"><a href="./" class="brand">Fevzi Çakmak <span>Taş heykel</span></a><a href="./">Siteye dön</a></header>
   <main class="shell admin-main">
-    <h1 style="font-size:clamp(2.8rem,7vw,5rem);line-height:1">Galeri yönetimi</h1>
+    <h1 style="font-size:clamp(2.8rem,7vw,5rem);line-height:1">Site yönetimi</h1>
     <section id="access" class="admin-panel">
       <h2>Yönetici girişi</h2>
       <form id="unlock">
@@ -24,12 +24,96 @@
       </form>
     </section>
     <div id="management" hidden>
-    <p>Eklemeler, düzenlemeler ve silmeler bu tarayıcıda taslak olarak saklanır. Yayımladığınızda ziyaretçiler güncel galeriyi görür.</p>
-    <div class="controls">
-      <button class="action" type="button" id="add" disabled>Medya ekle</button>
-      <button type="button" id="preview">Taslağı önizle</button>
-      <button type="button" id="lock">Yönetimi kilitle</button>
+    <div class="builder-toolbar">
+      <nav aria-label="Yönetim bölümleri">
+        <button type="button" id="show-pages" aria-pressed="true">Sayfalar</button>
+        <button type="button" id="show-media" aria-pressed="false">Medya kütüphanesi</button>
+      </nav>
+      <div class="controls">
+        <button type="button" id="preview">Siteyi önizle</button>
+        <button type="button" id="lock">Kilitle</button>
+      </div>
     </div>
+    <section id="pages-panel" class="builder-layout">
+      <aside class="builder-sidebar">
+        <h2>Sayfalar</h2>
+        <div id="pages-list"></div>
+        <form id="new-page" class="stacked">
+          <label>Yeni sayfa adı<input name="title" maxlength="90" placeholder="Örneğin Sergiler" required></label>
+          <button class="action" type="submit">Sayfa ekle</button>
+        </form>
+      </aside>
+      <div id="pages-empty" class="builder-stage">
+        <h2>Sayfa ekleyin</h2>
+        <p>Yeni sayfanıza metin, medya ve bağlantı blokları yerleştirebilirsiniz.</p>
+      </div>
+      <div id="page-workspace" class="builder-stage" hidden>
+        <form id="page-settings">
+          <h2>Sayfa ayarları</h2>
+          <div class="form-grid">
+            <label>Sayfa başlığı<input name="title" maxlength="90" required></label>
+            <label>Adres eki<input name="slug" maxlength="70" required></label>
+            <label class="wide check"><input name="menu" type="checkbox"> Üst menüde göster</label>
+          </div>
+          <small id="page-address" class="page-address"></small>
+          <div class="controls">
+            <button class="action" type="submit">Sayfa ayarlarını kaydet</button>
+            <button type="button" id="preview-page">Sayfayı önizle</button>
+            <button type="button" id="page-delete" class="danger">Sayfayı sil</button>
+          </div>
+        </form>
+        <section class="admin-panel">
+          <h2>İçerik blokları</h2>
+          <div id="blocks-list"></div>
+          <p id="blocks-empty">Bu sayfa henüz boş.</p>
+          <div class="controls block-types" id="block-types" aria-label="Blok ekle">
+            <button type="button" data-block="heading">Başlık ekle</button>
+            <button type="button" data-block="text">Metin ekle</button>
+            <button type="button" data-block="image">Görsel ekle</button>
+            <button type="button" data-block="video">Video ekle</button>
+            <button type="button" data-block="link">Bağlantı ekle</button>
+            <button type="button" data-block="divider">Ayırıcı ekle</button>
+          </div>
+          <form id="block-settings" class="block-editor" hidden>
+            <h3 id="block-heading"></h3>
+            <div class="form-grid">
+              <label class="wide" id="block-text-field">Metin<textarea name="text" rows="5" maxlength="6000"></textarea></label>
+              <div id="block-typography" class="wide type-settings">
+                <label>Yazı tipi<select name="face"><option value="serif">Serif</option><option value="sans">Sade</option></select></label>
+                <label>Boyut<select name="size"><option value="small">Küçük</option><option value="normal">Normal</option><option value="large">Büyük</option></select></label>
+                <label>Hizalama<select name="align"><option value="left">Sol</option><option value="center">Orta</option><option value="right">Sağ</option></select></label>
+                <label>Yazı rengi<select name="tone"><option value="ink">Koyu</option><option value="muted">Gri</option><option value="accent">Kahve</option></select></label>
+                <label class="check"><input type="checkbox" name="bold"> Kalın</label>
+                <label class="check"><input type="checkbox" name="italic"> İtalik</label>
+              </div>
+              <div id="block-media-field" class="wide">
+                <label>Medya kütüphanesi<select name="media"></select></label>
+                <button id="block-open-media" type="button">Medya kütüphanesini aç</button>
+                <label>Yeni dosya yükle<input type="file" id="block-files" multiple></label>
+                <div id="block-drop" class="drop-zone">Dosyayı buraya bırakarak sayfaya ekleyin</div>
+              </div>
+              <label id="block-fit-field">Genişlik<select name="fit"><option value="wide">Tam genişlik</option><option value="compact">Dar ve ortalı</option></select></label>
+              <div id="block-link-fields" class="wide type-settings">
+                <label>Bağlantı metni<input name="caption" maxlength="100"></label>
+                <label>Hedef<select name="target"></select></label>
+                <label class="wide" id="block-url-field">Dış bağlantı adresi<input name="href" maxlength="1000" inputmode="url" placeholder="https://"></label>
+              </div>
+            </div>
+            <div class="controls">
+              <button class="action" type="submit">Bloğu kaydet</button>
+              <button type="button" id="block-cancel">Vazgeç</button>
+              <button type="button" id="block-delete" class="danger">Bloğu sil</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
+    <section id="media-panel" hidden>
+    <div class="media-toolbar controls">
+      <button class="action" type="button" id="add" disabled>Medya ekle</button>
+      <label class="media-pick">Dosya seç<input type="file" id="media-files" multiple accept="image/jpeg,image/png,image/webp,image/gif,image/avif,video/mp4,video/webm"></label>
+    </div>
+    <div id="media-drop" class="drop-zone">Görselleri veya videoları buraya bırakın</div>
     <form id="editor" class="admin-panel" hidden>
       <h2 id="editor-title">Medya ekle</h2>
       <div class="form-grid">
@@ -42,7 +126,11 @@
       </div>
       <div class="controls"><button class="action" type="submit">Taslağa kaydet</button><button type="button" id="cancel">Vazgeç</button></div>
     </form>
-    <section class="admin-panel"><h2>Galeri sırası</h2><div id="items"></div></section>
+    <section class="admin-panel"><h2>Galeri sırası</h2>
+      <div class="drop-zone danger media-trash" data-drag-group="media" data-drag-id="trash">Silmek için medyayı buraya sürükleyin</div>
+      <div id="items"></div>
+    </section>
+    </section>
     <section class="admin-panel">
       <h2>Yayımla</h2>
       <form id="publish">

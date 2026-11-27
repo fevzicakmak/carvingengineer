@@ -9,7 +9,7 @@ function base64(file) {
   });
 }
 
-export async function publishGallery({ repo, branch, token, base, items, files }) {
+export async function publishGallery({ repo, branch, token, base, items, files, baseSite, site }) {
   const path = `/repos/${repo}`;
   const branchPath = branch.split('/').map(encodeURIComponent).join('/');
   async function request(endpoint, method = 'GET', body, raw = false) {
@@ -32,12 +32,18 @@ export async function publishGallery({ repo, branch, token, base, items, files }
 
   const ref = await request(`/git/ref/heads/${branchPath}`);
   const head = ref.object.sha;
-  const live = await request(`/contents/gallery.json?ref=${head}`, 'GET', undefined, true);
-  if (JSON.stringify(live) !== JSON.stringify(base)) {
-    throw new Error('Yayımdaki galeri bu taslak açıldıktan sonra değişmiş. Taslağı önizleyip değişikliklerinizi kaydedin, ardından son galeriyi yüklemek için taslağı sıfırlayın.');
+  const [live, liveSite] = await Promise.all([
+    request(`/contents/gallery.json?ref=${head}`, 'GET', undefined, true),
+    request(`/contents/site.json?ref=${head}`, 'GET', undefined, true)
+  ]);
+  if (JSON.stringify(live) !== JSON.stringify(base) || JSON.stringify(liveSite) !== JSON.stringify(baseSite)) {
+    throw new Error('Yayımdaki içerik bu taslak açıldıktan sonra değişmiş. Taslağı önizleyip değişikliklerinizi kaydedin, ardından son içeriği yüklemek için taslağı sıfırlayın.');
   }
   const commit = await request(`/git/commits/${head}`);
-  const tree = [{ path:'gallery.json', mode:'100644', type:'blob', content:JSON.stringify(items, null, 2) + '\n' }];
+  const tree = [
+    { path:'gallery.json', mode:'100644', type:'blob', content:JSON.stringify(items, null, 2) + '\n' },
+    { path:'site.json', mode:'100644', type:'blob', content:JSON.stringify(site, null, 2) + '\n' }
+  ];
   const used = new Set(items.flatMap(item => [item.src, item.poster].filter(Boolean)));
   for (const [filePath, file] of Object.entries(files)) {
     if (!used.has(filePath)) continue;
@@ -53,7 +59,7 @@ export async function publishGallery({ repo, branch, token, base, items, files }
   }
   const updatedTree = await request('/git/trees', 'POST', { base_tree:commit.tree.sha, tree });
   const updatedCommit = await request('/git/commits', 'POST', {
-    message:'Galeri içeriğini güncelle',
+    message:'Site içeriğini güncelle',
     tree:updatedTree.sha,
     parents:[head]
   });

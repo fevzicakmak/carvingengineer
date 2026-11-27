@@ -21,3 +21,10 @@ Bu dizinde `python3 -m http.server 8000` çalıştırıp `http://localhost:8000`
 - Yönetim ekranını açmak ve yayımlamak için `fevzicakmak/carvingengineer` deposuna ve yalnızca o depoya yazma izni olan fine-grained GitHub token (Contents: Read and write) girin. Anahtar GitHub’da hesap sahibi doğrulaması için kullanılır ve yalnızca açık yönetim sekmesinin belleğinde tutulur. Yüklenen dosyaların gereksiz EXIF bilgilerini yayımdan önce kaldırın.
 - Yayım tek Git commit’i oluşturur. Kaldırılan öğe siteden kalkar. Daha önce yayımlanmış kopyalar Git geçmişinde kalabilir.
 - Görsel sınırı 8 MB, video sınırı 20 MB. Video için H.264 kodlamalı MP4 en geniş telefon desteğini sağlar.
+
+## Sayfa düzenleyicisi
+
+- Site yönetiminde **Sayfalar** sekmesinden yeni bir sayfa açıp adres ekini ve üst menüde gösterilmesini ayarlayın.
+- Sayfaya başlık, metin, görsel, video, site içi veya dış bağlantı ve ayırıcı ekleyin. Blokları sürükleme tutamacıyla veya yukarı ve aşağı düğmeleriyle sıralayın.
+- Medyayı dosya seçerek, bırakma alanından yükleyerek veya kütüphaneden seçerek ekleyin. Kütüphaneden silme, onaydan sonra o medyaya bağlı sayfa bloklarını da kaldırır.
+- Site ve medya taslak içeriği tek işlemde yayımlanır.

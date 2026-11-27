@@ -1,10 +1,13 @@
-import { loadCatalog, types } from './catalog.js';
+import { loadCatalog, loadSite, types } from './catalog.js';
+
+import { pageUrl, validatedUrl } from './site-content.js';
 
 const get = id => document.getElementById(id);
 const grid = get('gallery-grid');
 const dialog = get('viewer');
 const filters = [...document.querySelectorAll('[data-filter]')];
-const draftMode = new URLSearchParams(location.search).get('taslak') === '1';
+const query = new URLSearchParams(location.search);
+const draftMode = query.get('taslak') === '1';
 let catalog = [];
 let filtered = [];
 let filter = 'all';
@@ -115,6 +118,80 @@ dialog.addEventListener('keydown', event => {
   }
 });
 
+function displayPages(site, previewing) {
+  const nav = get('site-nav');
+  for (const link of nav.querySelectorAll('a')) {
+    link.href = pageUrl('', previewing) + link.hash;
+  }
+  document.querySelector('.brand').href = pageUrl('', previewing);
+  const slug = query.get('sayfa');
+  for (const page of site.pages.filter(item => item.menu)) {
+    const link = element('a', page.title);
+    link.href = pageUrl(page.slug, previewing);
+    if (page.slug === slug) link.setAttribute('aria-current', 'page');
+    nav.append(link);
+  }
+  if (!slug) return;
+  const page = site.pages.find(item => item.slug === slug);
+  get('home').hidden = true;
+  get('custom-page').hidden = false;
+  get('custom-title').textContent = page?.title ?? 'Sayfa bulunamadı';
+  document.title = (page?.title ?? 'Sayfa bulunamadı') + ' · Fevzi Çakmak';
+  const content = get('custom-blocks');
+  if (!page) {
+    const home = element('a', 'Ana sayfaya dön', 'primary');
+    home.href = pageUrl('', previewing);
+    content.append(home);
+    return;
+  }
+  for (const block of page.blocks) {
+    if (block.type === 'text' || block.type === 'heading') {
+      const heading = block.type === 'heading';
+      const node = element(heading ? 'h2' : 'p', block.text, 'page-block');
+      for (const [value, choices] of [
+        [block.align, ['left', 'center', 'right']], [block.size, ['small', 'normal', 'large']],
+        [block.tone, ['ink', 'muted', 'accent']], [block.face, ['serif', 'sans']]
+      ]) {
+        if (choices.includes(value)) node.classList.add('is-' + value);
+      }
+      if (block.bold) node.classList.add('is-bold');
+      if (block.italic) node.classList.add('is-italic');
+      content.append(node);
+    } else if (block.type === 'image' || block.type === 'video') {
+      const media = catalog.find(item => item.id === block.mediaId && item.type === block.type);
+      const src = asset(media?.src);
+      if (!src) continue;
+      const image = block.type === 'image';
+      const figure = element('figure', '', 'page-block');
+      if (block.fit === 'compact') figure.classList.add('is-compact');
+      const node = element(image ? 'img' : 'video');
+      node.src = src;
+      if (image) {
+        node.alt = media.title;
+        node.loading = 'lazy';
+      } else {
+        node.controls = true;
+        node.playsInline = true;
+        node.preload = 'metadata';
+        if (asset(media.poster)) node.poster = asset(media.poster);
+      }
+      figure.append(node);
+      if (media.label) figure.append(element('figcaption', media.label));
+      content.append(figure);
+    } else if (block.type === 'link') {
+      const destination = site.pages.find(item => item.id === block.target);
+      const href = block.target === 'external' ? validatedUrl(block.href) :
+        (destination || block.target === 'home' ? pageUrl(destination?.slug, previewing) : '');
+      if (!href) continue;
+      const link = element('a', block.caption, 'primary page-block');
+      link.href = href;
+      content.append(link);
+    } else if (block.type === 'divider') {
+      content.append(element('hr', '', 'page-block'));
+    }
+  }
+}
+
 function requestPreview() {
   if (!draftMode || !window.opener) return Promise.resolve(null);
   const manager = window.opener;
@@ -140,6 +217,7 @@ try {
   catalog = draft?.items ?? await loadCatalog();
   draftFiles = draft?.files ?? {};
   if (draft) document.querySelector('.eyebrow').textContent = 'Taslak önizleme';
+  displayPages(draft?.site ?? await loadSite(), Boolean(draft));
   hero();
   render();
 } catch (error) {
