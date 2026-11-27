@@ -1,1 +1,144 @@
-{ "pages": [] }
+{
+  "pages": [
+    {
+      "id": "muze-sergisi",
+      "title": "Müze Sergisi",
+      "slug": "muze-sergisi",
+      "menu": true,
+      "blocks": [
+        {
+          "id": "muze-giris",
+          "type": "text",
+          "text": "Sergilenen taş yontulardan seçilmiş fotoğraflar.",
+          "size": "normal",
+          "tone": "muted",
+          "face": "sans"
+        },
+        {
+          "id": "muze-kemerli-galeri-baslik",
+          "type": "heading",
+          "text": "Kemerli galeri",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-kemerli-galeri-gorsel",
+          "type": "image",
+          "mediaId": "muze-kemerli-galeri",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-bezemeli-nis-baslik",
+          "type": "heading",
+          "text": "Bezemeli niş",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-bezemeli-nis-gorsel",
+          "type": "image",
+          "mediaId": "muze-bezemeli-nis",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-merdivenli-yontu-baslik",
+          "type": "heading",
+          "text": "Merdivenli taş yontu",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-merdivenli-yontu-gorsel",
+          "type": "image",
+          "mediaId": "muze-merdivenli-yontu",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-sivri-kemerli-cephe-baslik",
+          "type": "heading",
+          "text": "Sivri kemerli cephe",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-sivri-kemerli-cephe-gorsel",
+          "type": "image",
+          "mediaId": "muze-sivri-kemerli-cephe",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-sutunlu-aciklik-baslik",
+          "type": "heading",
+          "text": "Sütunlu açıklık",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-sutunlu-aciklik-gorsel",
+          "type": "image",
+          "mediaId": "muze-sutunlu-aciklik",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-tas-portal-baslik",
+          "type": "heading",
+          "text": "Taş portal",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-tas-portal-gorsel",
+          "type": "image",
+          "mediaId": "muze-tas-portal",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-kemerli-pencere-baslik",
+          "type": "heading",
+          "text": "Kemerli pencere",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-kemerli-pencere-gorsel",
+          "type": "image",
+          "mediaId": "muze-kemerli-pencere",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-geometrik-kabartma-baslik",
+          "type": "heading",
+          "text": "Geometrik kabartma",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-geometrik-kabartma-gorsel",
+          "type": "image",
+          "mediaId": "muze-geometrik-kabartma",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-bitkisel-kabartma-baslik",
+          "type": "heading",
+          "text": "Bitkisel kabartma",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "muze-bitkisel-kabartma-gorsel",
+          "type": "image",
+          "mediaId": "muze-bitkisel-kabartma",
+          "fit": "compact"
+        },
+        {
+          "id": "muze-galeri",
+          "type": "link",
+          "caption": "Tüm galeri",
+          "target": "external",
+          "href": "https://carvingengineer.com/#galeri"
+        }
+      ]
+    }
+  ]
+}

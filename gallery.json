@@ -1,5 +1,84 @@
 [
   {
+    "id": "muze-kemerli-galeri",
+    "title": "Kemerli galeri",
+    "type": "image",
+    "src": "assets/gallery-muze-kemerli-galeri.webp",
+    "label": "Müze Sergisi",
+    "description": "Kemer ve sütunların yan yana açıldığı taş yontu."
+  },
+  {
+    "id": "muze-bezemeli-nis",
+    "title": "Bezemeli niş",
+    "type": "image",
+    "src": "assets/gallery-muze-bezemeli-nis.webp",
+    "label": "Müze Sergisi",
+    "description": "Cephedeki kemer, yan sütunlar ve geometrik bezeme ayrıntıları."
+  },
+  {
+    "id": "muze-merdivenli-yontu",
+    "title": "Merdivenli taş yontu",
+    "type": "image",
+    "src": "assets/gallery-muze-merdivenli-yontu.webp",
+    "label": "Müze Sergisi",
+    "description": "Doğal taş kütlesi içinde küçük kemerli açıklıklar ve basamaklar.",
+    "coverCaption": "Sergideki görünüm",
+    "views": [
+      {
+        "src": "assets/gallery-muze-merdivenli-yontu-dis-mekan.webp",
+        "caption": "Dış mekânda ikinci açı"
+      }
+    ]
+  },
+  {
+    "id": "muze-sivri-kemerli-cephe",
+    "title": "Sivri kemerli cephe",
+    "type": "image",
+    "src": "assets/gallery-muze-sivri-kemerli-cephe.webp",
+    "label": "Müze Sergisi",
+    "description": "Kademeli kemer ve ince sütunlarla işlenmiş cephe."
+  },
+  {
+    "id": "muze-sutunlu-aciklik",
+    "title": "Sütunlu açıklık",
+    "type": "image",
+    "src": "assets/gallery-muze-sutunlu-aciklik.webp",
+    "label": "Müze Sergisi",
+    "description": "Ham taşın arasında iki ince sütun ve işlenmiş başlıklar."
+  },
+  {
+    "id": "muze-tas-portal",
+    "title": "Taş portal",
+    "type": "image",
+    "src": "assets/gallery-muze-tas-portal.webp",
+    "label": "Müze Sergisi",
+    "description": "Sivri taş kütlesinin alt bölümünde sütunlu bir giriş."
+  },
+  {
+    "id": "muze-kemerli-pencere",
+    "title": "Kemerli pencere",
+    "type": "image",
+    "src": "assets/gallery-muze-kemerli-pencere.webp",
+    "label": "Müze Sergisi",
+    "description": "Oyma bezeme ve pencere açıklığının çevresindeki taş yüzey."
+  },
+  {
+    "id": "muze-geometrik-kabartma",
+    "title": "Geometrik kabartma",
+    "type": "image",
+    "src": "assets/gallery-muze-geometrik-kabartma.webp",
+    "label": "Müze Sergisi",
+    "description": "Taş yüzeye oyulmuş geometrik bezeme."
+  },
+  {
+    "id": "muze-bitkisel-kabartma",
+    "title": "Bitkisel kabartma",
+    "type": "image",
+    "src": "assets/gallery-muze-bitkisel-kabartma.webp",
+    "label": "Müze Sergisi",
+    "description": "Taş yüzeyde çiçek ve yaprak motifleri."
+  },
+  {
     "id": "kus-sarayi-katalog-etutleri",
     "title": "Kuş Sarayı Eskizi",
     "type": "image",
