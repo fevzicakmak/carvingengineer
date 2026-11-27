@@ -1,3 +1,5 @@
+import { mediaPaths } from './catalog.js';
+
 const api = 'https://api.github.com';
 
 function base64(file) {
@@ -44,14 +46,14 @@ export async function publishGallery({ repo, branch, token, base, items, files, 
     { path:'gallery.json', mode:'100644', type:'blob', content:JSON.stringify(items, null, 2) + '\n' },
     { path:'site.json', mode:'100644', type:'blob', content:JSON.stringify(site, null, 2) + '\n' }
   ];
-  const used = new Set(items.flatMap(item => [item.src, item.poster].filter(Boolean)));
+  const used = new Set(items.flatMap(mediaPaths));
   for (const [filePath, file] of Object.entries(files)) {
     if (!used.has(filePath)) continue;
     const blob = await request('/git/blobs', 'POST', { content:await base64(file), encoding:'base64' });
     tree.push({ path:filePath, mode:'100644', type:'blob', sha:blob.sha });
   }
 
-  const oldUsed = new Set(base.flatMap(item => [item.src, item.poster].filter(Boolean)));
+  const oldUsed = new Set(base.flatMap(mediaPaths));
   for (const filePath of oldUsed) {
     if (filePath.startsWith('assets/gallery-') && !used.has(filePath)) {
       tree.push({ path:filePath, mode:'100644', type:'blob', sha:null });

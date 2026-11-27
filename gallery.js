@@ -63,10 +63,47 @@ function render() {
     } else {
       media.textContent = types[item.type] || '';
     }
-    button.append(media, element('h3', item.title), element('p', item.label || types[item.type]));
+    const meta = item.label || types[item.type];
+    const count = item.views?.length;
+    button.append(media, element('h3', item.title),
+      element('p', count ? meta + ' · ' + (count + 1) + ' görsel' : meta));
     button.addEventListener('click', () => show(index));
     return button;
   }));
+}
+
+function showImage(item, display) {
+  const image = element('img');
+  const views = [{ src:item.src, caption:item.coverCaption }, ...(item.views ?? [])]
+    .filter(view => asset(view.src));
+  const primary = views[0];
+  if (!primary) return;
+  image.alt = item.title;
+  image.src = asset(primary.src);
+  display.append(image);
+  if (views.length < 2) return;
+
+  const toolbar = element('div', '', 'viewer-views');
+  toolbar.setAttribute('role', 'group');
+  toolbar.setAttribute('aria-label', 'Çalışmanın görselleri');
+  const caption = element('p', '', 'viewer-view-caption');
+  caption.setAttribute('aria-live', 'polite');
+  const buttons = views.map((view, index) => {
+    const button = element('button', view.caption || (index + 1) + '. görsel');
+    button.type = 'button';
+    button.addEventListener('click', () => select(index));
+    return button;
+  });
+  function select(index) {
+    const view = views[index];
+    image.src = asset(view.src);
+    image.alt = [item.title, view.caption].filter(Boolean).join(' · ');
+    caption.textContent = (index + 1) + ' / ' + views.length;
+    buttons.forEach((button, position) => button.setAttribute('aria-pressed', String(position === index)));
+  }
+  toolbar.append(...buttons);
+  display.append(toolbar, caption);
+  select(0);
 }
 
 function show(index) {
@@ -88,10 +125,7 @@ function show(index) {
     video.src = src;
     display.append(video);
   } else if (src && item.type === 'image') {
-    const image = element('img');
-    image.src = src;
-    image.alt = item.title;
-    display.append(image);
+    showImage(item, display);
   } else if (src && item.type === 'model') {
     const frame = element('iframe');
     frame.title = item.title;

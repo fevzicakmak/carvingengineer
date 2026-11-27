@@ -1,4 +1,4 @@
-import { loadCatalog, loadSite, loadDraft, saveDraft, dropDraft, types } from './catalog.js';
+import { loadCatalog, loadSite, loadDraft, saveDraft, dropDraft, types, mediaPaths } from './catalog.js';
 import { publishGallery, verifyOwner } from './github.js';
 
 import { createPageEditor } from './page-editor.js';
@@ -148,7 +148,7 @@ async function change(nextItems, nextFiles, success, nextSite = site) {
         }
       }
     }
-    const used = new Set(nextItems.flatMap(item => [item.src, item.poster].filter(Boolean)));
+    const used = new Set(nextItems.flatMap(mediaPaths));
     const retained = Object.fromEntries(Object.entries(nextFiles).filter(([path]) => used.has(path)));
     await saveDraft({ base, items:nextItems, files:retained, baseSite, site:nextSite });
     site = nextSite;
@@ -206,6 +206,10 @@ editor.addEventListener('submit', async event => {
       entry.src = stageFile(fields.media.files[0], type === 'video' ? videoTypes : imageTypes, type === 'video' ? 20 : 8, nextFiles);
     }
     if (!entry.src) throw new Error('Bir medya dosyası seçin.');
+    if (type === 'image' && original?.views) {
+      entry.views = original.views;
+      if (entry.src === original.src && original.coverCaption) entry.coverCaption = original.coverCaption;
+    }
     if (type === 'video') {
       const poster = fields.poster.files[0];
       if (poster) entry.poster = stageFile(poster, imageTypes, 8, nextFiles);

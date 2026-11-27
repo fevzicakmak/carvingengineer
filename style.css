@@ -174,3 +174,8 @@ hr.page-block { border:0; border-top:1px solid var(--line); }
 
 .media-trash { position:sticky; top:0; z-index:1; background:var(--stone); }
 .media-trash.drop-target { background:#ede4d2; }
+
+.viewer-views { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
+.viewer-views button { border:1px solid var(--line); background:transparent; padding:7px 12px; }
+.viewer-views button[aria-pressed=true] { background:var(--ink); color:var(--stone); border-color:var(--ink); }
+.viewer-view-caption { margin-top:5px; font-size:.9rem; color:var(--muted); }

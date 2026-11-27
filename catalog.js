@@ -2,6 +2,10 @@ import { emptySite } from './site-content.js';
 
 export const types = { image: 'Görsel', video: 'Video', model: '3B model' };
 
+export function mediaPaths(item) {
+  return [item.src, item.poster, ...(item.views ?? []).map(view => view.src)].filter(Boolean);
+}
+
 export async function loadCatalog() {
   const response = await fetch('./gallery.json', { cache: 'no-cache' });
   if (!response.ok) throw new Error('Galeri içeriği yüklenemedi.');
