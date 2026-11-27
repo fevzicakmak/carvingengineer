@@ -1,44 +1,11 @@
 [
   {
-    "id": "tasta-mekan",
-    "title": "Taşta mekân",
-    "type": "video",
-    "src": "assets/ornek.mp4",
-    "poster": "assets/roma.webp",
-    "label": "Örnek video",
-    "description": "Mermer kuş sarayı tasarım görselinden hazırlanmış kısa bir yakınlaşma."
-  },
-  {
-    "id": "iyonik-kus-sarayi",
-    "title": "İyonik Kuş Sarayı",
+    "id": "kus-sarayi-katalog-etutleri",
+    "title": "Kuş Sarayı Eskizi",
     "type": "image",
-    "src": "assets/iyonik.webp",
-    "label": "Tasarım çalışması",
-    "description": "İyonik sütunlar ve üç yuva üzerine bir mermer kuş sarayı tasarımı."
-  },
-  {
-    "id": "uc-kemer",
-    "title": "Üç Kemer",
-    "type": "image",
-    "src": "assets/uc-kemer.webp",
-    "label": "Tasarım çalışması",
-    "description": "Roma mimarisinden hareketle üç kemerli cephe çalışması."
-  },
-  {
-    "id": "osmanli-kus-sarayi",
-    "title": "Osmanlı Kuş Sarayı",
-    "type": "image",
-    "src": "assets/osmanli.webp",
-    "label": "Tasarım çalışması",
-    "description": "Üç yuvalı mermer kuş sarayı için tasarım."
-  },
-  {
-    "id": "roma-kus-sarayi",
-    "title": "Roma Kuş Sarayı",
-    "type": "image",
-    "src": "assets/roma.webp",
-    "label": "Tasarım çalışması",
-    "description": "Marmara mermeri için Roma esintili bir cephe tasarımı."
+    "src": "assets/gallery-katalog-kus-sarayi-katalog-etutleri-3.webp",
+    "label": "El çizimi",
+    "description": "Deftere çizilmiş üç kubbeli kuş sarayı eskizi."
   },
   {
     "id": "cifte-kopru",
@@ -47,81 +14,5 @@
     "src": "assets/cifte-kopru.html",
     "label": "Dijital 3B model",
     "description": "Modeli sürükleyerek döndürebilir ve ayrıntılara yakınlaşabilirsiniz."
-  },
-  {
-    "id": "gotik-kemer-etutleri",
-    "title": "Gotik Kemer Etütleri",
-    "type": "image",
-    "src": "assets/gallery-katalog-gotik-kemer-etutleri-1.webp",
-    "coverCaption": "Işıklı kemer ve merdiven",
-    "views": [
-      {
-        "src": "assets/gallery-katalog-gotik-kemer-etutleri-2.webp",
-        "caption": "Açık taş yüzeyli yorum"
-      },
-      {
-        "src": "assets/gallery-katalog-gotik-kemer-etutleri-3.webp",
-        "caption": "İki katlı gotik cephe"
-      }
-    ],
-    "label": "Tasarım çalışması",
-    "description": "Sivri kemer, taş oyma şebeke ve merdiven üzerine üç tasarım yorumu."
-  },
-  {
-    "id": "uc-katli-galeriler",
-    "title": "Üç Katlı Galeriler",
-    "type": "image",
-    "src": "assets/gallery-katalog-uc-katli-galeriler-1.webp",
-    "coverCaption": "Merdivenli galeri cephesi",
-    "views": [
-      {
-        "src": "assets/gallery-katalog-uc-katli-galeriler-2.webp",
-        "caption": "Yan açıdan galeri tasarımı"
-      },
-      {
-        "src": "assets/gallery-katalog-uc-katli-galeriler-3.webp",
-        "caption": "Cephe çizimi"
-      }
-    ],
-    "label": "Tasarım çalışması",
-    "description": "Açık galeriler, sütun dizileri ve yan merdiven üzerine tasarım ve çizim çalışmaları."
-  },
-  {
-    "id": "kayada-kemerli-mekanlar",
-    "title": "Kayada Kemerli Mekânlar",
-    "type": "image",
-    "src": "assets/gallery-katalog-kayada-kemerli-mekanlar-1.webp",
-    "coverCaption": "Beyaz taşta açık kemerler",
-    "views": [
-      {
-        "src": "assets/gallery-katalog-kayada-kemerli-mekanlar-2.webp",
-        "caption": "Yandan nişli tasarım"
-      },
-      {
-        "src": "assets/gallery-katalog-kayada-kemerli-mekanlar-3.webp",
-        "caption": "Süslemeli üst kemer"
-      }
-    ],
-    "label": "Tasarım çalışması",
-    "description": "Doğal blok biçimi içinde kemer, niş ve geçit yerleşimlerine dair üç tasarım yorumu."
-  },
-  {
-    "id": "kus-sarayi-katalog-etutleri",
-    "title": "Kuş Sarayı Etütleri",
-    "type": "image",
-    "src": "assets/gallery-katalog-kus-sarayi-katalog-etutleri-1.webp",
-    "coverCaption": "Kubbeli kuş sarayı tasarımı",
-    "views": [
-      {
-        "src": "assets/gallery-katalog-kus-sarayi-katalog-etutleri-2.webp",
-        "caption": "Üç kuleli cephe tasarımı"
-      },
-      {
-        "src": "assets/gallery-katalog-kus-sarayi-katalog-etutleri-3.webp",
-        "caption": "Kuş sarayı eskizi"
-      }
-    ],
-    "label": "Tasarım çalışması",
-    "description": "Kuş sarayları için cephe, yuva dizilimi ve konsol düzeni çalışmaları."
   }
 ]
