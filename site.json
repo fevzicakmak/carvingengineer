@@ -556,6 +556,74 @@
           "href": "https://carvingengineer.com/#galeri"
         }
       ]
+    },
+    {
+      "id": "mavi-bahce-sergisi",
+      "title": "Mavi Bahçe Sergisi",
+      "slug": "mavi-bahce-sergisi",
+      "menu": true,
+      "blocks": [
+        {
+          "id": "mavi-bahce-sergisi-giris",
+          "type": "text",
+          "text": "Mavi Bahçe’deki sergiden fotoğraflar ve video. Sergilenen taş yontuların genel görünümleri, kemerleri, sütunları ve oyma detayları.",
+          "tone": "muted",
+          "face": "sans",
+          "size": "normal"
+        },
+        {
+          "id": "mavi-bahce-sergisi-sergi-alani-icerik",
+          "type": "image",
+          "mediaId": "mavi-bahce-sergisi-sergi-alani",
+          "fit": "wide"
+        },
+        {
+          "id": "mavi-bahce-sergisi-eserler-baslik",
+          "type": "heading",
+          "text": "Sergilenen eserler",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "mavi-bahce-sergisi-eserler-icerik",
+          "type": "image",
+          "mediaId": "mavi-bahce-sergisi-eserler",
+          "fit": "wide"
+        },
+        {
+          "id": "mavi-bahce-sergisi-detaylar-baslik",
+          "type": "heading",
+          "text": "Mimari detaylar",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "mavi-bahce-sergisi-detaylar-icerik",
+          "type": "image",
+          "mediaId": "mavi-bahce-sergisi-detaylar",
+          "fit": "wide"
+        },
+        {
+          "id": "mavi-bahce-sergisi-video-baslik",
+          "type": "heading",
+          "text": "Sergi videosu",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "mavi-bahce-sergisi-video-icerik",
+          "type": "video",
+          "mediaId": "mavi-bahce-sergisi-video",
+          "fit": "compact"
+        },
+        {
+          "id": "mavi-bahce-sergisi-galeri",
+          "type": "link",
+          "caption": "Tüm galeri",
+          "target": "external",
+          "href": "https://carvingengineer.com/#galeri"
+        }
+      ]
     }
   ]
 }

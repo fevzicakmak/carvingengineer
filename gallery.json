@@ -450,5 +450,75 @@
     "title": "Yazının taşa işlenmesi",
     "src": "assets/iox-urla-yazi-isleme.mp4",
     "poster": "assets/iox-urla-yazi-isleme-kapak.webp"
+  },
+  {
+    "id": "mavi-bahce-sergisi-sergi-alani",
+    "type": "image",
+    "title": "Sergi alanı",
+    "src": "assets/mavi-bahce-sergisi-sergi-alani-1.webp",
+    "coverCaption": "Sergi alanının genel görünümü",
+    "views": [
+      {
+        "src": "assets/mavi-bahce-sergisi-sergi-alani-2.webp",
+        "caption": "Sergi alanında ziyaretçiler"
+      },
+      {
+        "src": "assets/mavi-bahce-sergisi-sergi-alani-3.webp",
+        "caption": "Fevzi Çakmak sergi panosunun yanında"
+      }
+    ]
+  },
+  {
+    "id": "mavi-bahce-sergisi-eserler",
+    "type": "image",
+    "title": "Sergilenen eserler",
+    "src": "assets/mavi-bahce-sergisi-eserler-1.webp",
+    "coverCaption": "Taşa oyulmuş üç kemerli galeri",
+    "views": [
+      {
+        "src": "assets/mavi-bahce-sergisi-eserler-2.webp",
+        "caption": "Çok katlı kemerli yontunun genel görünümü"
+      },
+      {
+        "src": "assets/mavi-bahce-sergisi-eserler-3.webp",
+        "caption": "Yontunun merdivenli yan cephesi"
+      },
+      {
+        "src": "assets/mavi-bahce-sergisi-eserler-4.webp",
+        "caption": "Sivri kemerli taş yontu"
+      },
+      {
+        "src": "assets/mavi-bahce-sergisi-eserler-5.webp",
+        "caption": "Sütunlu cephenin alttan görünümü"
+      }
+    ]
+  },
+  {
+    "id": "mavi-bahce-sergisi-detaylar",
+    "type": "image",
+    "title": "Mimari detaylar",
+    "src": "assets/mavi-bahce-sergisi-detaylar-1.webp",
+    "coverCaption": "Oyma pencere ve basamaklar",
+    "views": [
+      {
+        "src": "assets/mavi-bahce-sergisi-detaylar-2.webp",
+        "caption": "Sütun başlıkları"
+      },
+      {
+        "src": "assets/mavi-bahce-sergisi-detaylar-3.webp",
+        "caption": "Kemerler arasındaki basamaklar"
+      },
+      {
+        "src": "assets/mavi-bahce-sergisi-detaylar-4.webp",
+        "caption": "Merdiven ve taş korkuluk"
+      }
+    ]
+  },
+  {
+    "id": "mavi-bahce-sergisi-video",
+    "type": "video",
+    "title": "Sergi videosu",
+    "src": "assets/mavi-bahce-sergisi-video.mp4",
+    "poster": "assets/mavi-bahce-sergisi-video-kapak.webp"
   }
 ]
