@@ -15,6 +15,27 @@ let current = 0;
 let draftFiles = {};
 const objectUrls = new Map();
 
+const menuToggle = get('site-menu-toggle');
+if (menuToggle) {
+  const menu = get('site-nav');
+  function closeMenu() {
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
+  menuToggle.hidden = false;
+  menuToggle.addEventListener('click', () => {
+    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+  menu.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  menuToggle.parentElement.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || menuToggle.getAttribute('aria-expanded') !== 'true') return;
+    closeMenu();
+    menuToggle.focus();
+  });
+}
+
 function asset(path) {
   if (!path || !/^assets\/[\w./-]+$/.test(path) || path.includes('..')) return '';
   const file = draftFiles[path];
