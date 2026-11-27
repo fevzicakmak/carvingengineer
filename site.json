@@ -442,6 +442,120 @@
           "href": "https://carvingengineer.com/#galeri"
         }
       ]
+    },
+    {
+      "id": "iox-urla",
+      "title": "İOX Urla",
+      "slug": "iox-urla",
+      "menu": true,
+      "blocks": [
+        {
+          "id": "iox-giris",
+          "type": "text",
+          "text": "İOX Urla çalışmasının atölye kayıtları. Ham taşın yüzeyi, nişin farklı açıları ve taş üzerine yazının işlenişi.",
+          "tone": "muted",
+          "face": "sans",
+          "size": "normal"
+        },
+        {
+          "id": "iox-eser-icerik",
+          "type": "image",
+          "mediaId": "iox-eser",
+          "fit": "wide"
+        },
+        {
+          "id": "iox-ham-tas-baslik",
+          "type": "heading",
+          "text": "Ham taş",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "iox-ham-tas-icerik",
+          "type": "image",
+          "mediaId": "iox-ham-tas",
+          "fit": "compact"
+        },
+        {
+          "id": "iox-yazi-baslik",
+          "type": "heading",
+          "text": "Taştaki yazı",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "iox-yazi-icerik",
+          "type": "image",
+          "mediaId": "iox-yazi",
+          "fit": "compact"
+        },
+        {
+          "id": "iox-video-baslik",
+          "type": "heading",
+          "text": "Yontu sürecinden videolar",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "iox-tas-yuzeyi-baslik",
+          "type": "heading",
+          "text": "İşlenmemiş taş yüzeyi",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "iox-tas-yuzeyi-icerik",
+          "type": "video",
+          "mediaId": "iox-tas-yuzeyi",
+          "fit": "compact"
+        },
+        {
+          "id": "iox-dik-tas-baslik",
+          "type": "heading",
+          "text": "Dik taş üzerinde çalışma",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "iox-dik-tas-icerik",
+          "type": "video",
+          "mediaId": "iox-dik-tas",
+          "fit": "compact"
+        },
+        {
+          "id": "iox-dairesel-form-baslik",
+          "type": "heading",
+          "text": "Dairesel formun yontulması",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "iox-dairesel-form-icerik",
+          "type": "video",
+          "mediaId": "iox-dairesel-form",
+          "fit": "compact"
+        },
+        {
+          "id": "iox-yazi-isleme-baslik",
+          "type": "heading",
+          "text": "Yazının taşa işlenmesi",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "iox-yazi-isleme-icerik",
+          "type": "video",
+          "mediaId": "iox-yazi-isleme",
+          "fit": "compact"
+        },
+        {
+          "id": "iox-galeri",
+          "type": "link",
+          "caption": "Tüm galeri",
+          "target": "external",
+          "href": "https://carvingengineer.com/#galeri"
+        }
+      ]
     }
   ]
 }

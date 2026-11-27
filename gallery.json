@@ -379,5 +379,76 @@
     "title": "Tezgâh başında uygulama",
     "src": "assets/workshop-tezgah-basinda.mp4",
     "poster": "assets/workshop-tezgah-basinda-kapak.webp"
+  },
+  {
+    "id": "iox-eser",
+    "type": "image",
+    "title": "Nişli taş yontu",
+    "src": "assets/iox-urla-eser-1.webp",
+    "coverCaption": "Atölyedeki genel görünüm",
+    "views": [
+      {
+        "src": "assets/iox-urla-eser-2.webp",
+        "caption": "Niş ve işleme ayrıntısı"
+      },
+      {
+        "src": "assets/iox-urla-eser-3.webp",
+        "caption": "Taşın yan görünümü"
+      }
+    ]
+  },
+  {
+    "id": "iox-ham-tas",
+    "type": "image",
+    "title": "Ham taş",
+    "src": "assets/iox-urla-ham-tas-1.webp",
+    "coverCaption": "Taş bloğunun yüzeyi",
+    "views": [
+      {
+        "src": "assets/iox-urla-ham-tas-2.webp",
+        "caption": "İşlenmemiş bloğun yan görünümü"
+      }
+    ]
+  },
+  {
+    "id": "iox-yazi",
+    "type": "image",
+    "title": "Taştaki yazı",
+    "src": "assets/iox-urla-yazi-1.webp",
+    "coverCaption": "Yazı işlenirken",
+    "views": [
+      {
+        "src": "assets/iox-urla-yazi-2.webp",
+        "caption": "Taşa işlenen yazı"
+      }
+    ]
+  },
+  {
+    "id": "iox-tas-yuzeyi",
+    "type": "video",
+    "title": "İşlenmemiş taş yüzeyi",
+    "src": "assets/iox-urla-tas-yuzeyi.mp4",
+    "poster": "assets/iox-urla-tas-yuzeyi-kapak.webp"
+  },
+  {
+    "id": "iox-dik-tas",
+    "type": "video",
+    "title": "Dik taş üzerinde çalışma",
+    "src": "assets/iox-urla-dik-tas.mp4",
+    "poster": "assets/iox-urla-dik-tas-kapak.webp"
+  },
+  {
+    "id": "iox-dairesel-form",
+    "type": "video",
+    "title": "Dairesel formun yontulması",
+    "src": "assets/iox-urla-dairesel-form.mp4",
+    "poster": "assets/iox-urla-dairesel-form-kapak.webp"
+  },
+  {
+    "id": "iox-yazi-isleme",
+    "type": "video",
+    "title": "Yazının taşa işlenmesi",
+    "src": "assets/iox-urla-yazi-isleme.mp4",
+    "poster": "assets/iox-urla-yazi-isleme-kapak.webp"
   }
 ]
