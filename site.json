@@ -328,6 +328,120 @@
           "fit": "compact"
         }
       ]
+    },
+    {
+      "id": "yontu-muhendisi-atolye-workshop",
+      "title": "Yontu Mühendisi Atölye Workshop",
+      "slug": "yontu-muhendisi-atolye-workshop",
+      "menu": true,
+      "blocks": [
+        {
+          "id": "workshop-giris",
+          "type": "text",
+          "text": "Atölyede katılımcılar geometrik motiflerini taş yüzeyine çiziyor ve çekiçle keski kullanarak kabartmaya dönüştürüyor.",
+          "tone": "muted",
+          "face": "sans",
+          "size": "normal"
+        },
+        {
+          "id": "workshop-atolye-icerik",
+          "type": "image",
+          "mediaId": "workshop-atolye",
+          "fit": "wide"
+        },
+        {
+          "id": "workshop-hazirlik-baslik",
+          "type": "heading",
+          "text": "Hazırlık ve çizim",
+          "face": "serif",
+          "size": "small"
+        },
+        {
+          "id": "workshop-hazirlik-icerik",
+          "type": "image",
+          "mediaId": "workshop-hazirlik",
+          "fit": "compact"
+        },
+        {
+          "id": "workshop-yontu-baslik",
+          "type": "heading",
+          "text": "Keskiyle taş yontma",
+          "face": "serif",
+          "size": "small"
+        },
+        {
+          "id": "workshop-yontu-icerik",
+          "type": "image",
+          "mediaId": "workshop-yontu",
+          "fit": "compact"
+        },
+        {
+          "id": "workshop-videolar",
+          "type": "heading",
+          "text": "Atölye videoları",
+          "face": "serif",
+          "size": "small"
+        },
+        {
+          "id": "workshop-birlikte-calisma-baslik",
+          "type": "heading",
+          "text": "Atölyede birlikte çalışma",
+          "face": "serif",
+          "size": "small"
+        },
+        {
+          "id": "workshop-birlikte-calisma-icerik",
+          "type": "video",
+          "mediaId": "workshop-birlikte-calisma",
+          "fit": "compact"
+        },
+        {
+          "id": "workshop-motif-hazirligi-baslik",
+          "type": "heading",
+          "text": "Taş yüzeyinde motif hazırlığı",
+          "face": "serif",
+          "size": "small"
+        },
+        {
+          "id": "workshop-motif-hazirligi-icerik",
+          "type": "video",
+          "mediaId": "workshop-motif-hazirligi",
+          "fit": "compact"
+        },
+        {
+          "id": "workshop-keskiyle-isleme-baslik",
+          "type": "heading",
+          "text": "Keskiyle taş işleme",
+          "face": "serif",
+          "size": "small"
+        },
+        {
+          "id": "workshop-keskiyle-isleme-icerik",
+          "type": "video",
+          "mediaId": "workshop-keskiyle-isleme",
+          "fit": "compact"
+        },
+        {
+          "id": "workshop-tezgah-basinda-baslik",
+          "type": "heading",
+          "text": "Tezgâh başında uygulama",
+          "face": "serif",
+          "size": "small"
+        },
+        {
+          "id": "workshop-tezgah-basinda-icerik",
+          "type": "video",
+          "mediaId": "workshop-tezgah-basinda",
+          "fit": "compact"
+        },
+        {
+          "id": "workshop-galeri",
+          "type": "link",
+          "caption": "Tüm galeri",
+          "target": "external",
+          "href": "https://carvingengineer.com/#galeri"
+        }
+      ]
     }
   ]
 }

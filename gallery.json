@@ -292,5 +292,92 @@
         "caption": "Sütun tabanlarının ayrıntısı"
       }
     ]
+  },
+  {
+    "id": "workshop-atolye",
+    "type": "image",
+    "title": "Atölye ve katılımcılar",
+    "src": "assets/workshop-atolye-1.webp",
+    "coverCaption": "Atölye ve çalışma tezgâhları",
+    "views": [
+      {
+        "src": "assets/workshop-atolye-2.webp",
+        "caption": "Atölyenin genel görünümü"
+      },
+      {
+        "src": "assets/workshop-atolye-3.webp",
+        "caption": "Katılımcılar tezgâh başında"
+      }
+    ]
+  },
+  {
+    "id": "workshop-hazirlik",
+    "type": "image",
+    "title": "Hazırlık ve çizim",
+    "src": "assets/workshop-hazirlik-1.webp",
+    "coverCaption": "Çekiçler, keskiler ve çizim araçları",
+    "views": [
+      {
+        "src": "assets/workshop-hazirlik-2.webp",
+        "caption": "Taş, şablon ve çizim malzemeleri"
+      },
+      {
+        "src": "assets/workshop-hazirlik-3.webp",
+        "caption": "Motifin taş yüzeyine aktarılması"
+      }
+    ]
+  },
+  {
+    "id": "workshop-yontu",
+    "type": "image",
+    "title": "Keskiyle taş yontma",
+    "src": "assets/workshop-yontu-1.webp",
+    "coverCaption": "Motif çizgilerinde ilk keski izleri",
+    "views": [
+      {
+        "src": "assets/workshop-yontu-2.webp",
+        "caption": "Tezgâh başında uygulama"
+      },
+      {
+        "src": "assets/workshop-yontu-3.webp",
+        "caption": "Motifin keskiyle işlenmesi"
+      },
+      {
+        "src": "assets/workshop-yontu-4.webp",
+        "caption": "Kabartmanın yakın planı"
+      },
+      {
+        "src": "assets/workshop-yontu-5.webp",
+        "caption": "Atölyede şekillenen yıldız motifi"
+      }
+    ]
+  },
+  {
+    "id": "workshop-birlikte-calisma",
+    "type": "video",
+    "title": "Atölyede birlikte çalışma",
+    "src": "assets/workshop-birlikte-calisma.mp4",
+    "poster": "assets/workshop-birlikte-calisma-kapak.webp"
+  },
+  {
+    "id": "workshop-motif-hazirligi",
+    "type": "video",
+    "title": "Taş yüzeyinde motif hazırlığı",
+    "src": "assets/workshop-motif-hazirligi.mp4",
+    "poster": "assets/workshop-motif-hazirligi-kapak.webp"
+  },
+  {
+    "id": "workshop-keskiyle-isleme",
+    "type": "video",
+    "title": "Keskiyle taş işleme",
+    "src": "assets/workshop-keskiyle-isleme.mp4",
+    "poster": "assets/workshop-keskiyle-isleme-kapak.webp"
+  },
+  {
+    "id": "workshop-tezgah-basinda",
+    "type": "video",
+    "title": "Tezgâh başında uygulama",
+    "src": "assets/workshop-tezgah-basinda.mp4",
+    "poster": "assets/workshop-tezgah-basinda-kapak.webp"
   }
 ]
