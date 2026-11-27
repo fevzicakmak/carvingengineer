@@ -590,5 +590,54 @@
     "title": "Eser videosu",
     "src": "assets/mitological-glow-video.mp4",
     "poster": "assets/mitological-glow-video-kapak.webp"
+  },
+  {
+    "id": "ancient-ruins-eser",
+    "type": "image",
+    "title": "Eserin farklı açıları",
+    "src": "assets/ancient-ruins-eser-1.webp",
+    "coverCaption": "Üç sütunu ve taşın doğal yüzeyini gösteren genel görünüm",
+    "views": [
+      {
+        "src": "assets/ancient-ruins-eser-2.webp",
+        "caption": "Taş yontunun açık havadan görünümü"
+      },
+      {
+        "src": "assets/ancient-ruins-eser-3.webp",
+        "caption": "Sütunlu yapının çapraz görünümü"
+      },
+      {
+        "src": "assets/ancient-ruins-eser-4.webp",
+        "caption": "Taşın doğal kenarı ve sütunlar"
+      },
+      {
+        "src": "assets/ancient-ruins-eser-5.webp",
+        "caption": "Sütunların alttan görünümü"
+      }
+    ]
+  },
+  {
+    "id": "ancient-ruins-detaylar",
+    "type": "image",
+    "title": "Sütun ve başlık detayları",
+    "src": "assets/ancient-ruins-detaylar-1.webp",
+    "coverCaption": "Sütun başlıkları ve taşın üst bölümü",
+    "views": [
+      {
+        "src": "assets/ancient-ruins-detaylar-2.webp",
+        "caption": "Üst bölümün alttan görünümü"
+      },
+      {
+        "src": "assets/ancient-ruins-detaylar-3.webp",
+        "caption": "Oyma sütun başlıklarının yakından görünümü"
+      }
+    ]
+  },
+  {
+    "id": "ancient-ruins-video",
+    "type": "video",
+    "title": "Eser videosu",
+    "src": "assets/ancient-ruins-video.mp4",
+    "poster": "assets/ancient-ruins-video-kapak.webp"
   }
 ]

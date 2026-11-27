@@ -692,6 +692,61 @@
           "href": "https://carvingengineer.com/#galeri"
         }
       ]
+    },
+    {
+      "id": "ancient-ruins",
+      "title": "ANCIENT RUINS",
+      "slug": "ancient-ruins",
+      "menu": true,
+      "blocks": [
+        {
+          "id": "ancient-ruins-giris",
+          "type": "text",
+          "text": "Üç sütun, oyma başlıklar ve taşın işlenmeden bırakılan yüzeyleriyle ANCIENT RUINS. Fotoğraflar eseri farklı açılardan, video ise sütunlu yapıyı yakından gösteriyor.",
+          "tone": "muted",
+          "face": "sans",
+          "size": "normal"
+        },
+        {
+          "id": "ancient-ruins-eser-icerik",
+          "type": "image",
+          "mediaId": "ancient-ruins-eser",
+          "fit": "wide"
+        },
+        {
+          "id": "ancient-ruins-detaylar-baslik",
+          "type": "heading",
+          "text": "Sütun ve başlık detayları",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "ancient-ruins-detaylar-icerik",
+          "type": "image",
+          "mediaId": "ancient-ruins-detaylar",
+          "fit": "wide"
+        },
+        {
+          "id": "ancient-ruins-video-baslik",
+          "type": "heading",
+          "text": "Eser videosu",
+          "size": "small",
+          "face": "serif"
+        },
+        {
+          "id": "ancient-ruins-video-icerik",
+          "type": "video",
+          "mediaId": "ancient-ruins-video",
+          "fit": "compact"
+        },
+        {
+          "id": "ancient-ruins-galeri",
+          "type": "link",
+          "caption": "Tüm galeri",
+          "target": "external",
+          "href": "https://carvingengineer.com/#galeri"
+        }
+      ]
     }
   ]
 }
